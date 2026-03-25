@@ -19,11 +19,3 @@ title: Home
     <p class="description">サイトを作った。</p>
   </div>
 </section>
-
-<section>
-  <h2>Projects</h2>
-  <div class="card">
-    <h3><a href="https://github.com/Flowers-of-Romance/ghost">Ghost</a></h3>
-    <p class="description">LLMのための脳 — 生物学的記憶メカニズムを再現する長期記憶システム</p>
-  </div>
-</section>
