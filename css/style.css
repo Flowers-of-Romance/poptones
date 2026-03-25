@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Fira+Code:wght@400;700&display=swap');
+
+:root {
+  --bg: #faf9f7;
+  --text: #2d2d2d;
+  --text-muted: #6b6b6b;
+  --accent: #4a6fa5;
+  --card-bg: #ffffff;
+  --card-border: #e8e6e3;
+  --code-bg: #f0eeeb;
+  --radius: 12px;
+}
+
+[data-theme="dark"] {
+  --bg: #1a1a2e;
+  --text: #e0e0e0;
+  --text-muted: #9a9a9a;
+  --accent: #7ba4d4;
+  --card-bg: #222240;
+  --card-border: #333355;
+  --code-bg: #2a2a4a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: var(--text-muted);
+}
+
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+/* Section */
+section {
+  margin-bottom: 3rem;
+}
+
+section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--card-border);
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1rem;
+  transition: background 0.3s;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.card .date {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.card .description {
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Post content */
+.post-content {
+  line-height: 2;
+}
+
+.post-content h2 {
+  margin-top: 2rem;
+}
+
+.post-content code {
+  font-family: 'Fira Code', monospace;
+  background: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.post-content pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--card-border);
+}
