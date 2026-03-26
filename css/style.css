@@ -1,24 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Fira+Code:wght@400;700&display=swap');
 
 :root {
-  --bg: #faf9f7;
-  --text: #2d2d2d;
-  --text-muted: #6b6b6b;
-  --accent: #4a6fa5;
-  --card-bg: #ffffff;
-  --card-border: #e8e6e3;
-  --code-bg: #f0eeeb;
+  --bg: #003333;
+  --text: #ffffff;
+  --text-muted: #aaccbb;
+  --accent: #eeffee;
+  --accent-visited: #dddddd;
+  --card-bg: #004040;
+  --card-border: #006060;
+  --code-bg: #005050;
   --radius: 12px;
 }
 
 [data-theme="dark"] {
-  --bg: #1a1a2e;
-  --text: #e0e0e0;
-  --text-muted: #9a9a9a;
-  --accent: #7ba4d4;
-  --card-bg: #222240;
-  --card-border: #333355;
-  --code-bg: #2a2a4a;
+  --bg: #002828;
+  --text: #ffffff;
+  --text-muted: #99bbaa;
+  --accent: #eeffee;
+  --accent-visited: #dddddd;
+  --card-bg: #003838;
+  --card-border: #005555;
+  --code-bg: #004545;
 }
 
 * {
@@ -43,8 +45,16 @@ a {
   text-decoration: none;
 }
 
+a:visited {
+  color: var(--accent-visited);
+}
+
 a:hover {
   text-decoration: underline;
+}
+
+a:active {
+  color: #ff0000;
 }
 
 /* Header */
