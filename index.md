@@ -38,7 +38,7 @@ title: Home
     <h3><a href="/poptones/posts/activation-steering/">Activation SteeringによるLLMの解剖 (Qwen3-8B)</a></h3>
     <div class="card-meta">
       <span class="date">投稿日：2026年03月26日(木)15時12分41秒</span>
-      <span class="tag">LLM</span>
+      <span class="tag">AI</span>
       <span class="tag">Mechanistic Interpretability</span>
       <span class="tag">Activation Steering</span>
     </div>
