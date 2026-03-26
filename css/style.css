@@ -265,7 +265,7 @@ section h2 {
   margin: 1rem 0;
   padding: 0.8rem 1.2rem;
   border-radius: 0 var(--radius) var(--radius) 0;
-  color: var(--text);
+  color: var(--text-muted);
 }
 
 .post-content blockquote p {
