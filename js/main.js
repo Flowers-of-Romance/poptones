@@ -3,20 +3,18 @@ const stored = localStorage.getItem("theme");
 
 if (stored) {
   document.documentElement.setAttribute("data-theme", stored);
-} else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-  document.documentElement.setAttribute("data-theme", "light");
 }
 
 function updateIcon() {
-  const isLight = document.documentElement.getAttribute("data-theme") === "light";
-  toggle.textContent = isLight ? "\u263E" : "\u2600";
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  toggle.textContent = isDark ? "\u2600" : "\u263E";
 }
 
 toggle.addEventListener("click", () => {
   const current = document.documentElement.getAttribute("data-theme");
-  const next = current === "light" ? "" : "light";
+  const next = current === "dark" ? "" : "dark";
   document.documentElement.setAttribute("data-theme", next);
-  localStorage.setItem("theme", next || "dark");
+  localStorage.setItem("theme", next || "default");
   updateIcon();
 });
 
