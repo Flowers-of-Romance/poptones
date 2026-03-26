@@ -74,7 +74,7 @@ a:active {
 
 .social-icons {
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
   justify-content: center;
   margin-top: 1.5rem;
 }
