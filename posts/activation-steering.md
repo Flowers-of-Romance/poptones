@@ -1,6 +1,6 @@
 ---
 layout: layout.vto
-title: Activation SteeringによるLLMの解剖
+title: Activation SteeringによるLLMの解剖 (Qwen3-8B)
 ---
 
 <div class="post-content">
