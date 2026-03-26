@@ -220,6 +220,10 @@ section h2 {
   text-decoration: none;
 }
 
+.toc a:hover {
+  background: var(--code-bg);
+}
+
 /* Footnotes */
 .footnotes {
   margin-top: 2rem;
