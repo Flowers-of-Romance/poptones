@@ -219,6 +219,18 @@ section h2 {
   text-decoration: none;
 }
 
+/* Footnotes */
+.footnotes {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.footnotes p {
+  margin: 0.5rem 0;
+}
+
 .toc a:hover {
   color: var(--accent);
 }

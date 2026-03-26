@@ -25,6 +25,16 @@ title: Home
 <section>
   <h2>Posts</h2>
   <div class="card">
+    <h3><a href="/poptones/posts/internet/">インターネットと「からっぽの洞窟」</a></h3>
+    <div class="card-meta">
+      <span class="date">投稿日：2026年03月26日(木)18時18分36秒</span>
+      <span class="tag">エッセイ</span>
+      <span class="tag">インターネット</span>
+      <span class="tag">AI</span>
+    </div>
+    <p class="description">AIがネットをつまらなくしたのではない。我々が最初から「からっぽ」だった。</p>
+  </div>
+  <div class="card">
     <h3><a href="/poptones/posts/activation-steering/">Activation SteeringによるLLMの解剖 (Qwen3-8B)</a></h3>
     <div class="card-meta">
       <span class="date">投稿日：2026年03月26日(木)15時12分41秒</span>
