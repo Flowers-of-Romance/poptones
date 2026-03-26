@@ -162,8 +162,6 @@ section h2 {
   border-collapse: collapse;
   margin: 1.5rem 0;
   font-size: 0.9rem;
-  overflow-x: auto;
-  display: block;
 }
 
 .post-content thead th {
