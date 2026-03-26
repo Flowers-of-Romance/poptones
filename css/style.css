@@ -136,7 +136,65 @@ section h2 {
 
 /* Post content */
 .post-content {
-  line-height: 2;
+  line-height: 1.9;
+  font-size: 1rem;
+}
+
+.post-content p {
+  margin: 1rem 0;
+}
+
+.post-content h2 {
+  font-size: 1.4rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--card-border);
+}
+
+.post-content h3 {
+  font-size: 1.15rem;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.post-content h4 {
+  font-size: 1.05rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.post-content blockquote {
+  background: var(--code-bg);
+  border-left: 4px solid var(--accent);
+  margin: 1rem 0;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--text);
+}
+
+.post-content blockquote p {
+  margin: 0.3rem 0;
+}
+
+.post-content ul,
+.post-content ol {
+  margin: 1rem 0;
+  padding-left: 1.8rem;
+}
+
+.post-content li {
+  margin: 0.3rem 0;
+}
+
+.post-content hr {
+  border: none;
+  border-top: 1px solid var(--card-border);
+  margin: 2.5rem 0;
+}
+
+.post-content strong {
+  font-weight: 700;
 }
 
 .post-content img {
