@@ -755,7 +755,8 @@ L16 α=5.0 negativeでは
 - モデル：`Qwen/Qwen3-8B`
 - ライブラリ：PyTorch + HuggingFace Transformers（forward hook直接使用）
 - ハードウェア：AMD Ryzen AI Max+ 395, 128GB RAM
-- スイープ全ログ：[sweep.txt](https://github.com/Flowers-of-Romance/activation-steering/blob/main/results/sweep.txt)
+- αスイープ全ログ：[sweep.txt](https://github.com/Flowers-of-Romance/activation-steering/blob/main/results/sweep.txt)
+- 全層スイープ全ログ：[all_layers_sweep.md](https://github.com/Flowers-of-Romance/activation-steering/blob/main/results/all_layers_sweep.md)
 
 ---
 
