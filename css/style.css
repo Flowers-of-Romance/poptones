@@ -164,6 +164,30 @@ section h2 {
   padding: 0;
 }
 
+/* Alerts / Callouts */
+.alert {
+  border-left: 4px solid var(--accent);
+  background: var(--code-bg);
+  padding: 1rem 1.2rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.alert strong {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.alert-warning {
+  border-left-color: #e6a700;
+}
+
+[data-theme="dark"] .alert-warning {
+  border-left-color: #ffc107;
+}
+
 /* Footer */
 footer {
   text-align: center;
