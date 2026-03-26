@@ -42,7 +42,7 @@ body {
 
 a {
   color: var(--accent);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:visited {
