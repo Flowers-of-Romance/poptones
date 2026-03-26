@@ -216,7 +216,7 @@ section h2 {
 }
 
 .toc a {
-  color: var(--text);
+  color: var(--text-muted);
   text-decoration: none;
 }
 
