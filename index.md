@@ -13,8 +13,8 @@ title: Home
 <section>
   <h2>Posts</h2>
   <div class="card">
-    <h3><a href="/poptones/posts/hello/">はじめての投稿</a></h3>
+    <h3><a href="/poptones/posts/activation-steering/">Activation SteeringによるLLMの解剖 (Qwen3-8B)</a></h3>
     <span class="date">2026-03-26</span>
-    <p class="description">サイトを作った。</p>
+    <p class="description">LLMの脳内に手を突っ込んで出力を操作する。全36層スイープ＋αスイープの探索的実験。</p>
   </div>
 </section>
