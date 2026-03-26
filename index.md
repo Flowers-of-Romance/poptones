@@ -28,7 +28,7 @@ title: Home
     <h3><a href="/poptones/posts/internet/">インターネットと「からっぽの洞窟」</a></h3>
     <div class="card-meta">
       <span class="date">投稿日：2026年03月26日(木)18時18分36秒</span>
-      <span class="tag">エッセイ</span>
+      <span class="tag">ポエム</span>
       <span class="tag">インターネット</span>
       <span class="tag">AI</span>
     </div>
