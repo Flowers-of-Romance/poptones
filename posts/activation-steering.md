@@ -5,6 +5,12 @@ title: Activation SteeringによるLLMの解剖 (Qwen3-8B)
 
 <div class="post-content">
 
+# Activation SteeringによるLLMの解剖 (Qwen3-8B)
+
+<p class="post-meta">この記事は人工無能を使って執筆されています。</p>
+
+<nav class="toc"></nav>
+
 ## この記事はwhat exactly？
 
 LLM（Large Language Model。ChatGPTやClaudeなどの事です）に「もっと明るく話して」「英語で話して」と頼むことがありますよね。でもこれはお願いです。LLMが従うかどうかは保証されません。

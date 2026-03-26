@@ -21,3 +21,23 @@ toggle.addEventListener("click", () => {
 });
 
 updateIcon();
+
+// Auto-generate heading IDs and TOC
+const toc = document.querySelector(".toc");
+if (toc) {
+  const headings = document.querySelectorAll(".post-content h2");
+  const list = document.createElement("ul");
+  headings.forEach((el, i) => {
+    const id = "s" + i;
+    el.id = id;
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = "#" + id;
+    a.textContent = el.textContent;
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+  // Replace manual TOC with auto-generated
+  toc.innerHTML = "<strong>目次</strong>";
+  toc.appendChild(list);
+}
