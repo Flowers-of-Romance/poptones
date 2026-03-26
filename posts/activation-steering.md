@@ -7,7 +7,14 @@ title: Activation SteeringによるLLMの解剖 (Qwen3-8B)
 
 # Activation SteeringによるLLMの解剖 (Qwen3-8B)
 
-<p class="post-meta">この記事は人工無能を使って執筆されています。</p>
+<div class="post-meta">
+  <span>2026-03-26</span>
+  <span class="tag">LLM</span>
+  <span class="tag">Mechanistic Interpretability</span>
+  <span class="tag">Activation Steering</span>
+  <span class="tag">Qwen</span>
+</div>
+<p class="post-note">この記事は人工無能を使って執筆されています。</p>
 
 <nav class="toc"></nav>
 

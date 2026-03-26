@@ -14,7 +14,12 @@ title: Home
   <h2>Posts</h2>
   <div class="card">
     <h3><a href="/poptones/posts/activation-steering/">Activation SteeringによるLLMの解剖 (Qwen3-8B)</a></h3>
-    <span class="date">2026-03-26</span>
+    <div class="card-meta">
+      <span class="date">2026-03-26</span>
+      <span class="tag">LLM</span>
+      <span class="tag">Mechanistic Interpretability</span>
+      <span class="tag">Activation Steering</span>
+    </div>
     <p class="description">LLMの脳内に手を突っ込んで出力を操作する。全36層スイープ＋αスイープの探索的実験。</p>
   </div>
 </section>
