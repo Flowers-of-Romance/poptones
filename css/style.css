@@ -1,6 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Fira+Code:wght@400;700&display=swap');
 
 :root {
+  --bg: #f5f5f0;
+  --text: #2d2d2d;
+  --text-muted: #5a6b5a;
+  --accent: #006050;
+  --accent-visited: #004040;
+  --card-bg: #ffffff;
+  --card-border: #d0ddd0;
+  --code-bg: #e8f0e8;
+  --radius: 12px;
+}
+
+[data-theme="dark"] {
   --bg: #003333;
   --text: #ffffff;
   --text-muted: #aaccbb;
@@ -9,18 +21,6 @@
   --card-bg: #004040;
   --card-border: #006060;
   --code-bg: #005050;
-  --radius: 12px;
-}
-
-[data-theme="dark"] {
-  --bg: #002828;
-  --text: #ffffff;
-  --text-muted: #99bbaa;
-  --accent: #eeffee;
-  --accent-visited: #dddddd;
-  --card-bg: #003838;
-  --card-border: #005555;
-  --code-bg: #004545;
 }
 
 * {
