@@ -1,6 +1,6 @@
 ---
 layout: layout.vto
-title: Home
+title: ">_"
 ---
 
 <div class="header">
