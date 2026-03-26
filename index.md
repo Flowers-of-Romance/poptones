@@ -4,7 +4,7 @@ title: Home
 ---
 
 <div class="header">
-  <h1>人口無能のサイト</h1>
+  <h1>人工無能のサイト</h1>
   <div class="social-links">
     <a href="https://github.com/Flowers-of-Romance">GitHub</a>
   </div>
