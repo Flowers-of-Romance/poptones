@@ -20,6 +20,19 @@ toggle.addEventListener("click", () => {
 
 updateIcon();
 
+// Reading time (half actual time)
+const postContent = document.querySelector(".post-content");
+const postMeta = document.querySelector(".post-meta");
+if (postContent && postMeta) {
+  const text = postContent.textContent || "";
+  const chars = text.replace(/\s+/g, "").length;
+  const minutes = Math.max(1, Math.round(chars / 600 / 2));
+  const span = document.createElement("span");
+  span.className = "reading-time";
+  span.textContent = minutes + " min read";
+  postMeta.appendChild(span);
+}
+
 // Auto-generate heading IDs and TOC
 const toc = document.querySelector(".toc-sidebar .toc") || document.querySelector(".toc");
 if (toc) {
