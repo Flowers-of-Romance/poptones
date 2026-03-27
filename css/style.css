@@ -191,7 +191,7 @@ section h2 {
 
 /* Article Layout */
 body:has(.article-layout) {
-  max-width: 1100px;
+  max-width: 1160px;
 }
 
 .article-layout {
