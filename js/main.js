@@ -38,4 +38,20 @@ if (toc) {
   // Replace manual TOC with auto-generated
   toc.innerHTML = "<strong>目次</strong>";
   toc.appendChild(list);
+
+  // Highlight current section in TOC
+  const tocLinks = list.querySelectorAll("a");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach((a) => a.classList.remove("active"));
+          const active = list.querySelector('a[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add("active");
+        }
+      });
+    },
+    { rootMargin: "0px 0px -80% 0px" }
+  );
+  headings.forEach((h) => observer.observe(h));
 }
