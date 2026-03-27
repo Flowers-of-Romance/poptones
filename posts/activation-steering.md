@@ -1,5 +1,5 @@
 ---
-layout: layout.vto
+layout: post.vto
 title: Activation SteeringによるLLMの解剖 (Qwen3-8B)
 ---
 
@@ -16,7 +16,6 @@ title: Activation SteeringによるLLMの解剖 (Qwen3-8B)
 </div>
 <p class="post-note">この記事は人工無能を使って執筆されています。</p>
 
-<nav class="toc"></nav>
 
 ## この記事はwhat exactly？
 

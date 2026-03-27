@@ -21,7 +21,7 @@ toggle.addEventListener("click", () => {
 updateIcon();
 
 // Auto-generate heading IDs and TOC
-const toc = document.querySelector(".toc");
+const toc = document.querySelector(".toc-sidebar .toc") || document.querySelector(".toc");
 if (toc) {
   const headings = document.querySelectorAll(".post-content h2");
   const list = document.createElement("ul");

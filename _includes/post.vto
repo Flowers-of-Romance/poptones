@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/poptones/css/style.css">
+</head>
+<body>
+  <button class="theme-toggle" aria-label="Toggle theme"></button>
+
+  <div class="article-layout">
+    <main>
+      {{ content }}
+    </main>
+    <aside class="toc-sidebar">
+      <nav class="toc"></nav>
+    </aside>
+  </div>
+
+  <footer>
+    <p>&copy; {{ new Date().getFullYear() }} 人工無能のサイト</p>
+  </footer>
+
+  <script type="module" src="/poptones/js/main.js"></script>
+</body>
+</html>

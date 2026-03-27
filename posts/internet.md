@@ -1,5 +1,5 @@
 ---
-layout: layout.vto
+layout: post.vto
 title: インターネットと「からっぽの洞窟」
 ---
 
@@ -15,7 +15,6 @@ title: インターネットと「からっぽの洞窟」
 </div>
 <p class="post-note">この記事は人工無能を使って執筆されています。</p>
 
-<nav class="toc"></nav>
 
 ## AIがネットをつまらなくしたという物語
 
