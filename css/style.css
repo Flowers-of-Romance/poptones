@@ -499,7 +499,7 @@ body:has(.article-layout) {
 }
 
 .x-btn {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .action-count {
