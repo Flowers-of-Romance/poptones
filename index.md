@@ -32,7 +32,7 @@ title: ">_"
       <span class="tag">Claude Code</span>
       <span class="tag">神学</span>
     </div>
-    <p class="description">逆瀬川氏の「テクノ嘆願」概念への応答。祈りは阿片であり、阿片であるがゆえに殺してはならない。</p>
+    <p class="description">逆瀬川ちゃんの「テクノ嘆願」概念への応答。祈りは阿片であり、阿片であるがゆえに殺してはならない。</p>
   </div>
   <div class="card">
     <h3><a href="/poptones/posts/raskolnikov/">MRPromptとActivation Steeringを組み合わせる</a></h3>
