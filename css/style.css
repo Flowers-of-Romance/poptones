@@ -515,13 +515,6 @@ body:has(.article-layout) {
   border-radius: 22px;
 }
 
-.action-divider {
-  width: 24px;
-  height: 1px;
-  background: var(--card-border);
-  margin: 0.3rem 0;
-}
-
 /* Footer */
 footer {
   text-align: center;
