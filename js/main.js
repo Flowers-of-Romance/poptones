@@ -33,6 +33,49 @@ if (postContent && postMeta) {
   postMeta.appendChild(span);
 }
 
+// Action sidebar buttons
+const likeBtn = document.querySelector(".like-btn");
+const bookmarkBtn = document.querySelector(".bookmark-btn");
+const facebookBtn = document.querySelector(".facebook-btn");
+const hatenaBtn = document.querySelector(".hatena-btn");
+
+function showToast(msg) {
+  const existing = document.querySelector(".action-toast");
+  if (existing) existing.remove();
+  const toast = document.createElement("div");
+  toast.className = "action-toast";
+  toast.textContent = msg;
+  toast.style.cssText =
+    "position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);" +
+    "background:var(--card-bg);color:var(--text);border:1px solid var(--card-border);" +
+    "padding:0.6rem 1.2rem;border-radius:8px;font-size:0.9rem;z-index:999;" +
+    "animation:fadeout 2s forwards";
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2200);
+}
+
+if (!document.querySelector("#toast-style")) {
+  const style = document.createElement("style");
+  style.id = "toast-style";
+  style.textContent = "@keyframes fadeout{0%,70%{opacity:1}100%{opacity:0}}";
+  document.head.appendChild(style);
+}
+
+if (likeBtn) {
+  likeBtn.addEventListener("click", () => showToast("そんな機能はないよ"));
+}
+if (bookmarkBtn) {
+  bookmarkBtn.addEventListener("click", () => showToast("そんな機能はないよ"));
+}
+if (facebookBtn) {
+  facebookBtn.addEventListener("click", () => showToast("Facebookはちょっと"));
+}
+if (hatenaBtn) {
+  const url = encodeURIComponent(location.href);
+  const title = encodeURIComponent(document.title);
+  hatenaBtn.href = "https://b.hatena.ne.jp/entry/panel/?url=" + url + "&title=" + title;
+}
+
 // Auto-generate heading IDs and TOC
 const toc = document.querySelector(".toc-sidebar .toc") || document.querySelector(".toc");
 if (toc) {
