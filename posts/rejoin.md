@@ -8,7 +8,7 @@ title: .claudeignoreの神学的応答——テクノ嘆願批判、あるいは
 # .claudeignoreの神学的応答——テクノ嘆願批判、あるいは祈りを殺すな
 
 <div class="post-meta">
-  <span>投稿日：2026年03月28日(土)19時00分00秒</span>
+  <span>投稿日：2026年03月28日(土)19時38分02秒</span>
   <span class="tag">ポエム</span>
   <span class="tag">Claude Code</span>
   <span class="tag">神学</span>
