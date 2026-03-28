@@ -25,6 +25,16 @@ title: ">_"
 <section>
   <h2>Posts</h2>
   <div class="card">
+    <h3><a href="/poptones/posts/rejoin/">.claudeignoreの神学的応答——テクノ嘆願批判、あるいは祈りを殺すな</a></h3>
+    <div class="card-meta">
+      <span class="date">投稿日：2026年03月28日(土)19時00分00秒</span>
+      <span class="tag">ポエム</span>
+      <span class="tag">Claude Code</span>
+      <span class="tag">神学</span>
+    </div>
+    <p class="description">逆瀬川氏の「テクノ嘆願」概念への応答。祈りは阿片であり、阿片であるがゆえに殺してはならない。</p>
+  </div>
+  <div class="card">
     <h3><a href="/poptones/posts/raskolnikov/">MRPromptとActivation Steeringを組み合わせる</a></h3>
     <div class="card-meta">
       <span class="date">投稿日：2026年03月28日(土)18時36分30秒</span>
