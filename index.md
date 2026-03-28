@@ -25,6 +25,17 @@ title: ">_"
 <section>
   <h2>Posts</h2>
   <div class="card">
+    <h3><a href="/poptones/posts/raskolnikov/">MRPromptとActivation Steeringを組み合わせる</a></h3>
+    <div class="card-meta">
+      <span class="date">投稿日：2026年03月28日(金)21時00分00秒</span>
+      <span class="tag">LLM</span>
+      <span class="tag">Activation Steering</span>
+      <span class="tag">Role-Playing</span>
+      <span class="tag">ドストエフスキー</span>
+    </div>
+    <p class="description">MRPrompt（何を知っているか）とActivation Steering（どう感じるか）を組み合わせてラスコリーニコフを演じさせる。</p>
+  </div>
+  <div class="card">
     <h3><a href="/poptones/posts/internet/">インターネットと「からっぽの洞窟」</a></h3>
     <div class="card-meta">
       <span class="date">投稿日：2026年03月26日(木)18時18分36秒</span>
