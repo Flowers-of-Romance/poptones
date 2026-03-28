@@ -8,7 +8,7 @@ title: MRPromptとActivation Steeringを組み合わせる
 # MRPromptとActivation Steeringを組み合わせる
 
 <div class="post-meta">
-  <span>投稿日：2026年03月28日(金)21時00分00秒</span>
+  <span>投稿日：2026年03月28日(土)18時36分30秒</span>
   <span class="tag">LLM</span>
   <span class="tag">Activation Steering</span>
   <span class="tag">Role-Playing</span>

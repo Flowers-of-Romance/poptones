@@ -27,7 +27,7 @@ title: ">_"
   <div class="card">
     <h3><a href="/poptones/posts/raskolnikov/">MRPromptとActivation Steeringを組み合わせる</a></h3>
     <div class="card-meta">
-      <span class="date">投稿日：2026年03月28日(金)21時00分00秒</span>
+      <span class="date">投稿日：2026年03月28日(土)18時36分30秒</span>
       <span class="tag">LLM</span>
       <span class="tag">Activation Steering</span>
       <span class="tag">Role-Playing</span>
