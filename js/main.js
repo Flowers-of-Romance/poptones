@@ -50,9 +50,9 @@ if (postContent && postMeta) {
         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
       </button>
       <div class="action-divider"></div>
-      <span class="action-btn x-btn" aria-label="X">
+      <button class="action-btn x-btn" aria-label="X">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </span>
+      </button>
       <button class="action-btn facebook-btn" aria-label="Facebook">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       </button>
@@ -62,28 +62,50 @@ if (postContent && postMeta) {
     </div>`;
   document.body.appendChild(sidebar);
 
-  function showToast(msg) {
-    const existing = document.querySelector(".action-toast");
+  function showBubble(btn, msg) {
+    const existing = sidebar.querySelector(".action-bubble");
     if (existing) existing.remove();
-    const toast = document.createElement("div");
-    toast.className = "action-toast";
-    toast.textContent = msg;
-    toast.style.cssText =
-      "position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);" +
-      "background:var(--card-bg);color:var(--text);border:1px solid var(--card-border);" +
-      "padding:0.6rem 1.2rem;border-radius:8px;font-size:0.9rem;z-index:999;" +
-      "animation:fadeout 2s forwards";
-    document.body.appendChild(toast);
-    setTimeout(() => toast.remove(), 2200);
+    const bubble = document.createElement("div");
+    bubble.className = "action-bubble";
+    bubble.textContent = msg;
+    btn.style.position = "relative";
+    btn.appendChild(bubble);
+    setTimeout(() => bubble.remove(), 2200);
   }
 
   const style = document.createElement("style");
-  style.textContent = "@keyframes fadeout{0%,70%{opacity:1}100%{opacity:0}}";
+  style.textContent = `
+    .action-bubble {
+      position: absolute;
+      left: calc(100% + 10px);
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--card-border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      z-index: 999;
+      animation: fadeout 2.2s forwards;
+    }
+    .action-bubble::before {
+      content: "";
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 5px solid transparent;
+      border-right-color: var(--card-border);
+    }
+    @keyframes fadeout{0%,70%{opacity:1}100%{opacity:0}}`;
   document.head.appendChild(style);
 
-  sidebar.querySelector(".like-btn").addEventListener("click", () => showToast("そんな機能はないよ"));
-  sidebar.querySelector(".bookmark-btn").addEventListener("click", () => showToast("そんな機能はないよ"));
-  sidebar.querySelector(".facebook-btn").addEventListener("click", () => showToast("Facebookはちょっと"));
+  sidebar.querySelector(".like-btn").addEventListener("click", function() { showBubble(this, "そんな機能はないよ"); });
+  sidebar.querySelector(".bookmark-btn").addEventListener("click", function() { showBubble(this, "そんな機能はないよ"); });
+  sidebar.querySelector(".x-btn").addEventListener("click", function() { showBubble(this, "Twitterはちょっと"); });
+  sidebar.querySelector(".facebook-btn").addEventListener("click", function() { showBubble(this, "Facebookはちょっと"); });
 })();
 
 // Auto-generate heading IDs and TOC
