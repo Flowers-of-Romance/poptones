@@ -515,6 +515,17 @@ body:has(.article-layout) {
   border-radius: 22px;
 }
 
+/* Drop cap */
+.drop-cap::first-letter {
+  float: left;
+  font-size: 3.2em;
+  line-height: 0.8;
+  padding-right: 0.08em;
+  margin-top: 0.05em;
+  font-weight: 700;
+  color: var(--accent, var(--text));
+}
+
 /* Footer */
 footer {
   text-align: center;
