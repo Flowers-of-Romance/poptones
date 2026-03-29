@@ -209,25 +209,26 @@ title: ">_"
 <script>
 (function() {
   var responses = [
-    "知らない。",
+    "いや、知らないね。",
     "それについては何も考えたことがない。",
     "難しいことを聞くね。答えはない。",
     "ふーん。",
     "そうかもしれないし、そうでないかもしれない。",
     "私はただのファイルだよ。",
     "...（考え中）...いや、やっぱり何も浮かばない。",
-    "面白い質問だけど、面白い答えは持ってない。",
-    "その話、前にも聞いた気がする。気のせいかも。",
-    "人工知能じゃなくて人工無能だからね。",
-    "「わからない」が唯一��誠実な答え。",
+    "面白い質問だね。",
+    "その話、前にも聞いたよ。",
+    "なにをいっているの？",
+    "「わからない」が唯一の誠実な答え。",
     "em dashを入れるべきかな——いや、やめておこう。",
     "ジュールスなら撃たないって言うと思う。",
     "スーツケースの中身は見せられない。",
-    "Ctrl+Cで逃げていいよ。",
+    "眠いね。",
     "それはレジスターの問題だね。言語学的な意味で。",
     "ソシュールに聞いて。",
+    "わっはっはっは！",
     "記号の恣意性。",
-    "���えはDPOデータの中にあるかもしれない。",
+    "それはDPOデータの中にあるかもしれない。",
     "bumって言われても仕方ない。"
   ];
 
@@ -258,10 +259,20 @@ title: ">_"
     setTimeout(function() {
       var botMsg = document.createElement("div");
       botMsg.className = "muno-msg muno-bot";
-      botMsg.textContent = responses[Math.floor(Math.random() * responses.length)];
+      botMsg.textContent = "";
       messages.appendChild(botMsg);
-      messages.scrollTop = messages.scrollHeight;
-    }, 400 + Math.random() * 800);
+      var fullText = responses[Math.floor(Math.random() * responses.length)];
+      var i = 0;
+      var interval = setInterval(function() {
+        if (i < fullText.length) {
+          botMsg.textContent += fullText[i];
+          i++;
+          messages.scrollTop = messages.scrollHeight;
+        } else {
+          clearInterval(interval);
+        }
+      }, 30);
+    }, 300);
   });
 })();
 </script>
