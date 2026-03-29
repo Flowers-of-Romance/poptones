@@ -50,8 +50,40 @@ if (postContent && postMeta) {
     fetch(btn.getAttribute("data-md-url"))
       .then(function(r) { return r.text(); })
       .then(function(t) {
-        var body = t.replace(/^---[\s\S]*?---\s*/, "");
-        return navigator.clipboard.writeText(body);
+        // parse original frontmatter
+        var fmMatch = t.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
+        var body = fmMatch ? t.slice(fmMatch[0].length) : t;
+
+        // extract title from frontmatter
+        var titleMatch = fmMatch && fmMatch[1].match(/title:\s*(.+)/);
+        var title = titleMatch ? titleMatch[1].trim() : document.title;
+
+        // extract tags from post-meta
+        var tags = [];
+        document.querySelectorAll(".post-meta .tag").forEach(function(el) {
+          tags.push(el.textContent.trim());
+        });
+
+        // extract date from post-meta
+        var dateEl = document.querySelector(".post-meta .date, .post-meta span:first-child");
+        var dateMatch = dateEl && dateEl.textContent.match(/(\d{4})年(\d{2})月(\d{2})日/);
+        var date = dateMatch ? dateMatch[1] + "-" + dateMatch[2] + "-" + dateMatch[3] : "";
+
+        // description: first sentence of body text
+        var plainBody = body.replace(/<[^>]+>/g, "").replace(/^[\s#*\->\[\]()]+/, "").trim();
+        var firstSentence = plainBody.match(/^(.+?[。．.！!])/);
+        var description = firstSentence ? firstSentence[1] : plainBody.slice(0, 80);
+
+        var newFm = "---\n";
+        newFm += 'url: ' + location.href + "\n";
+        newFm += 'title: "' + title.replace(/"/g, '\\"') + '"\n';
+        newFm += 'description: "' + description.replace(/"/g, '\\"') + '"\n';
+        newFm += "date: " + date + "\n";
+        newFm += "tags: [" + tags.join(", ") + "]\n";
+        newFm += "author: 人工無能ちゃん\n";
+        newFm += "---\n\n";
+
+        return navigator.clipboard.writeText(newFm + body);
       })
       .then(function() {
         btn.classList.add("copied");
