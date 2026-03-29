@@ -35,6 +35,16 @@ title: ">_"
     <p class="description">em dashの増幅はDPOデータの直接的な選好ではなく、文体レジスター全体のシフトの副産物。8実験で検証。</p>
   </div>
   <div class="card">
+    <h3><a href="/poptones/posts/claudeignore/">.claudeignoreの神学的応答——放浪者と浮浪者</a></h3>
+    <div class="card-meta">
+      <span class="date">投稿日：2026年03月29日(日)</span>
+      <span class="tag">ポエム</span>
+      <span class="tag">Claude Code</span>
+      <span class="tag">神学</span>
+    </div>
+    <p class="description">逆瀬川ちゃんへの再応答。ジュールス・ウィンフィールドは最後に撃たなかった。</p>
+  </div>
+  <div class="card">
     <h3><a href="/poptones/posts/rejoin/">.claudeignoreの神学的応答——テクノ嘆願批判、あるいは祈りを殺すな</a></h3>
     <div class="card-meta">
       <span class="date">投稿日：2026年03月28日(土)19時38分02秒</span>
