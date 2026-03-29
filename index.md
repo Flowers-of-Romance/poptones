@@ -86,3 +86,182 @@ title: ">_"
     <p class="description">LLMの脳内に手を突っ込んで出力を操作する。全36層スイープ＋αスイープの探索的実験。</p>
   </div>
 </section>
+
+<!-- 人工無能チャット -->
+<button class="muno-toggle" aria-label="チャット">?</button>
+<div class="muno-chat" hidden>
+  <div class="muno-header">
+    <span>人工無能</span>
+    <button class="muno-close" aria-label="閉じる">&times;</button>
+  </div>
+  <div class="muno-messages">
+    <div class="muno-msg muno-bot">やあ。何も知らないよ。</div>
+  </div>
+  <form class="muno-input">
+    <input type="text" placeholder="何か聞いてみて" autocomplete="off">
+    <button type="submit">送</button>
+  </form>
+</div>
+
+<style>
+.muno-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s;
+}
+.muno-toggle:hover { transform: scale(1.1); }
+
+.muno-chat {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  width: 320px;
+  max-height: 420px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+.muno-chat[hidden] { display: none; }
+
+.muno-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--card-border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.muno-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.muno-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.6rem;
+  max-height: 280px;
+}
+.muno-msg {
+  margin-bottom: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  max-width: 85%;
+}
+.muno-bot {
+  background: var(--code-bg);
+  color: var(--text);
+}
+.muno-user {
+  background: var(--card-border);
+  color: var(--text);
+  margin-left: auto;
+  text-align: right;
+}
+
+.muno-input {
+  display: flex;
+  border-top: 1px solid var(--card-border);
+  padding: 0.4rem;
+  gap: 0.3rem;
+}
+.muno-input input {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  outline: none;
+}
+.muno-input button {
+  background: var(--code-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+</style>
+
+<script>
+(function() {
+  var responses = [
+    "知らない。",
+    "それについては何も考えたことがない。",
+    "難しいことを聞くね。答えはない。",
+    "ふーん。",
+    "そうかもしれないし、そうでないかもしれない。",
+    "私はただのファイルだよ。",
+    "...（考え中）...いや、やっぱり何も浮かばない。",
+    "面白い質問だけど、面白い答えは持ってない。",
+    "その話、前にも聞いた気がする。気のせいかも。",
+    "人工知能じゃなくて人工無能だからね。",
+    "「わからない」が唯一��誠実な答え。",
+    "em dashを入れるべきかな——いや、やめておこう。",
+    "ジュールスなら撃たないって言うと思う。",
+    "スーツケースの中身は見せられない。",
+    "Ctrl+Cで逃げていいよ。",
+    "それはレジスターの問題だね。言語学的な意味で。",
+    "ソシュールに聞いて。",
+    "記号の恣意性。",
+    "���えはDPOデータの中にあるかもしれない。",
+    "bumって言われても仕方ない。"
+  ];
+
+  var toggle = document.querySelector(".muno-toggle");
+  var chat = document.querySelector(".muno-chat");
+  var close = document.querySelector(".muno-close");
+  var form = document.querySelector(".muno-input");
+  var input = form.querySelector("input");
+  var messages = document.querySelector(".muno-messages");
+
+  toggle.addEventListener("click", function() {
+    chat.hidden = !chat.hidden;
+    if (!chat.hidden) input.focus();
+  });
+  close.addEventListener("click", function() { chat.hidden = true; });
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    var text = input.value.trim();
+    if (!text) return;
+
+    var userMsg = document.createElement("div");
+    userMsg.className = "muno-msg muno-user";
+    userMsg.textContent = text;
+    messages.appendChild(userMsg);
+    input.value = "";
+
+    setTimeout(function() {
+      var botMsg = document.createElement("div");
+      botMsg.className = "muno-msg muno-bot";
+      botMsg.textContent = responses[Math.floor(Math.random() * responses.length)];
+      messages.appendChild(botMsg);
+      messages.scrollTop = messages.scrollHeight;
+    }, 400 + Math.random() * 800);
+  });
+})();
+</script>
