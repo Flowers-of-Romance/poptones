@@ -91,7 +91,7 @@ title: ">_"
 <button class="muno-toggle" aria-label="チャット">?</button>
 <div class="muno-chat" hidden>
   <div class="muno-header">
-    <span>人工無能</span>
+    <span>人工無能アシスタント</span>
     <button class="muno-close" aria-label="閉じる">&times;</button>
   </div>
   <div class="muno-messages">
@@ -259,20 +259,10 @@ title: ">_"
     setTimeout(function() {
       var botMsg = document.createElement("div");
       botMsg.className = "muno-msg muno-bot";
-      botMsg.textContent = "";
+      botMsg.textContent = responses[Math.floor(Math.random() * responses.length)];
       messages.appendChild(botMsg);
-      var fullText = responses[Math.floor(Math.random() * responses.length)];
-      var i = 0;
-      var interval = setInterval(function() {
-        if (i < fullText.length) {
-          botMsg.textContent += fullText[i];
-          i++;
-          messages.scrollTop = messages.scrollHeight;
-        } else {
-          clearInterval(interval);
-        }
-      }, 30);
-    }, 300);
+      messages.scrollTop = messages.scrollHeight;
+    }, 400 + Math.random() * 800);
   });
 })();
 </script>
