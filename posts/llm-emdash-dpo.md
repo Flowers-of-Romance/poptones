@@ -403,9 +403,9 @@ Llama3はinstruction形式では「自然な散文」に見えるが、raw compl
 - OpenAI. "[Expanding on what we missed with sycophancy.](https://openai.com/index/expanding-on-sycophancy/)" 2025.
 
 
-# 用語集: LLMの書式マーカー増幅実験
+## 用語集: LLMの書式マーカー増幅実験
 
-## モデルと訓練
+### モデルと訓練
 
 | 用語 | 意味 |
 |------|------|
@@ -418,7 +418,7 @@ Llama3はinstruction形式では「自然な散文」に見えるが、raw compl
 | **instruct tuning** | SFT + RLHF/DPO の総称。ベースモデルを「使える」モデルにする工程 |
 | **abliteration** | instructモデルから安全性フィルタ（refusal）の方向ベクトルだけを除去する手法。スタイルには影響しない |
 
-## 報酬と最適化
+### 報酬と最適化
 
 | 用語 | 意味 |
 |------|------|
@@ -428,7 +428,7 @@ Llama3はinstruction形式では「自然な散文」に見えるが、raw compl
 | **preference data** | DPO訓練で使う「chosen（好まれた回答）」と「rejected（拒否された回答）」のペアデータ |
 | **chosen / rejected** | preference dataの2つの回答。人間がchosenを「より良い」と判断した |
 
-## 計測と統計
+### 計測と統計
 
 | 用語 | 意味 |
 |------|------|
@@ -441,7 +441,7 @@ Llama3はinstruction形式では「自然な散文」に見えるが、raw compl
 | **エントロピー** | 情報理論の概念。確率分布の「ばらつき」を測る。高いほど予測が難しい（多様なトークンが来る）、低いほど予測しやすい（少数のトークンに集中） |
 | **logprobs** | 各トークンの対数確率。モデルが「次にどのトークンが来るか」をどう予測しているかの生データ |
 
-## 句読点
+### 句読点
 
 | 用語 | 文字 | Unicode | 意味 |
 |------|------|---------|------|
@@ -450,7 +450,7 @@ Llama3はinstruction形式では「自然な散文」に見えるが、raw compl
 | **HORIZONTAL BAR** | ― | U+2015 | 日本語の慣習的ダッシュ。2つ重ねて「——」と使う |
 | **カタカナ長音符** | ー | U+30FC | 日本語の長音。「コーヒー」の「ー」。ダッシュとは別の文字だが見た目が似ている |
 
-## モデル名
+### モデル名
 
 | 名前 | 何か |
 |------|------|
@@ -461,7 +461,7 @@ Llama3はinstruction形式では「自然な散文」に見えるが、raw compl
 | **Zephyr** | HuggingFace H4のプロジェクト。Mistral-7Bベースで同様に3段階チェックポイントを公開。Tulu 3との対比に使用 |
 | **GPT-4o** | OpenAIのモデル。ChatGPTの中身。「ダッシュ多用」の通説の元凶だが、API経由ではダッシュがほぼゼロだった |
 
-## ツールと環境
+### ツールと環境
 
 | 用語 | 意味 |
 |------|------|
