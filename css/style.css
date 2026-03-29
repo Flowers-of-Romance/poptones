@@ -518,7 +518,7 @@ body:has(.article-layout) {
 /* Drop cap */
 .drop-cap::first-letter {
   float: left;
-  font-size: 2.0em;
+  font-size: 1.5em;
   line-height: 0.8;
   padding-right: 0.08em;
   margin-top: 0.05em;
