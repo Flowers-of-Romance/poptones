@@ -1,4 +1,19 @@
+---
+layout: post.vto
+title: LLMの文体について　ふたたび
+---
+
+<div class="post-content">
+
 # LLMの文体について　ふたたび
+
+<div class="post-meta">
+  <span>投稿日：2026年03月29日(日)</span>
+  <span class="tag">LLM</span>
+  <span class="tag">DPO</span>
+  <span class="tag">Stylometry</span>
+</div>
+<p class="post-note">この記事は人工無能を使って執筆されています。</p>
 
 LLMの出力にem dash（—）やコロン（:）が異常に多い、という観察がある。これはベースモデルの時点で存在する傾向なのか、それともSFT/DPOの段階で増幅されるのか。3つのモデルファミリーでのbase/instruct比較、プロンプト形式の交絡統制、SFT/DPO段階の分離、トークナイザー仮説の検証、日本語と英語の分離分析、GPT-4oの計測、preference dataの直接分析を行った。
 
@@ -456,3 +471,4 @@ Llama3はinstruction形式では「自然な散文」に見えるが、raw compl
 | **raw=True** | ollamaのパラメータ。チャットテンプレートを適用せず、テキストをそのまま入力として渡す。ベースモデルのcompletion生成に使う |
 | **MeCab** | 日本語の形態素解析器。文を単語（形態素）に分割する。日本語のword countに使用 |
 | **temperature** | 生成のランダムさを制御するパラメータ。高いほど多様な出力、低いほど決定的な出力。本実験では0.7 |
+</div>
