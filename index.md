@@ -249,6 +249,22 @@ title: ">_"
 
   function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
+  // ランダム文字生成
+  var glyphPool = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん" +
+    "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン" +
+    "亜唖娃阿哀愛挨曖悪握圧扱宛嵐安案暗以衣位囲医依委威為畏胃尉異移萎偉椅彙意違維慰遺緯域育" +
+    "壱逸茨芋引印因咽姻員院陰飲隠韻右宇羽雨渦嘘唄鬱畝浦運雲永泳英映栄営詠影鋭衛易疫益液駅悦" +
+    "—–:;()[]{}!?。、…♪♫★☆※→←↑↓△▽○●◎◇◆□■▲▼";
+
+  function gibberish() {
+    var len = 3 + Math.floor(Math.random() * 12);
+    var s = "";
+    for (var i = 0; i < len; i++) {
+      s += glyphPool[Math.floor(Math.random() * glyphPool.length)];
+    }
+    return s;
+  }
+
   function respond(text) {
     var lower = text.toLowerCase();
     // キーワードマッチ
@@ -262,6 +278,10 @@ title: ">_"
     // 30%の確率でオウム返し
     if (Math.random() < 0.3 && text.length > 2) {
       return pick(echoes)(text);
+    }
+    // 15%の確率でランダム文字生成
+    if (Math.random() < 0.2) {
+      return gibberish();
     }
     // フォールバック
     return pick(fallbacks);
