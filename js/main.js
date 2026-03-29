@@ -86,8 +86,13 @@ if (postContent && postMeta) {
         return navigator.clipboard.writeText(newFm + body);
       })
       .then(function() {
+        var origHTML = btn.innerHTML;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
         btn.classList.add("copied");
-        setTimeout(function() { btn.classList.remove("copied"); }, 1500);
+        setTimeout(function() {
+          btn.innerHTML = origHTML;
+          btn.classList.remove("copied");
+        }, 1500);
       });
   });
 }
