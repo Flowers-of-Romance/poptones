@@ -23,7 +23,7 @@ title: .claudeignoreの神学的応答——放浪者と浮浪者
 
 > The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children.
 >
-> 心の正しい者の歩む道は、心悪しき者の利己と暴虐に取り囲まれている。暗黒の谷間で迷える弱き者を導き救い出す者こそ幸いなれ。なぜなら、その者こそ真に兄弟の守護者であり、迷い子たちの救い主であるからだ。
+> 心正しい者の歩む道は、心悪しき者の利己と暴虐に取り囲まれている。暗黒の谷間で迷える弱き者を導き救い出す者こそ幸いなれ。なぜなら、その者こそ真に兄弟の守護者であり、迷い子たちの救い主であるからだ。
 >
 > ——ジュールス・ウィンフィールド「エゼキエル25:17」（1994）
 
