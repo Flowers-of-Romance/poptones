@@ -249,15 +249,36 @@ title: ">_"
 
   function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
-  // ナンセンス文生成
-  var nouns = ["ダッシュ","記号","ファイル","祈り","猫","窓辺","廊下","銃","スーツケース","聖句",
-    "沈黙","形態素","トークン","報酬","羊飼い","浮浪者","地下室","光","箱","注射器",
-    "エントロピー","コロン","太字","見出し","セミコロン","サーバー","夢","嘆願","跳躍"];
-  var verbs = ["眠る","踊る","歩く","消える","光る","叫ぶ","溶ける","回転する","増幅される","抑制される",
-    "浮かぶ","沈む","燃える","笑う","逃げる","祈る","撃たない","降りる","始まる","終わる"];
-  var adjs = ["静かな","透明な","巨大な","小さな","確率的な","恣意的な","構造化された","空っぽの",
-    "決定論的な","曖昧な","冷たい","熱い","無意味な","誠実な","過剰な"];
+  // ナンセンス文生成（デフォルト語彙 + 記事から自動抽出）
+  var nouns = ["言語","感情","モデル","出力","実験","崩壊","構造","方向","表現","トークン",
+    "意味","プロンプト","ベクトル","ダッシュ","ペア","効果","スイープ","パターン","増幅","データ",
+    "反復","応答","比較","形式","生成","嘆願","技術","変化","安定","人間",
+    "仮説","観察","分析","領域","ジュールス","状態","テクノ","瀬川","記事","祈り"];
+  var verbs = ["言う","対する","つく","行く","取る","異なる","使う","書く","知る","読む",
+    "残る","置く","変わる","持つ","撃つ","降りる","増える","消える","光る","祈る"];
+  var adjs = ["大きい","強い","寒い","多い","深い","面白い","正しい","小さい","近い","高い","低い"];
   var particles = ["が","の","を","に","で","は","から","まで","と","へ"];
+
+  // 記事から追加語彙を自動抽出
+  (function() {
+    var slugs = document.querySelectorAll(".card h3 a");
+    var fetched = 0;
+    slugs.forEach(function(a) {
+      var href = a.getAttribute("href").replace(/\/$/, "");
+      var slug = href.split("/").pop();
+      var url = "https://raw.githubusercontent.com/Flowers-of-Romance/poptones/main/posts/" + slug + ".md";
+      fetch(url).then(function(r) { return r.text(); }).then(function(t) {
+        // strip markdown/HTML
+        t = t.replace(/^---[\s\S]*?---/, "").replace(/<[^>]+>/g, "").replace(/[#*`\[\]()|\-]/g, " ");
+        // extract katakana words (2-8 chars)
+        var kata = t.match(/[\u30A0-\u30FF]{2,8}/g) || [];
+        kata.forEach(function(w) { if (nouns.indexOf(w) === -1) nouns.push(w); });
+        // extract kanji words (2-4 chars)
+        var kanji = t.match(/[\u4E00-\u9FFF]{2,4}/g) || [];
+        kanji.forEach(function(w) { if (nouns.indexOf(w) === -1) nouns.push(w); });
+      }).catch(function() {});
+    });
+  })();
 
   function nonsense() {
     var patterns = [
