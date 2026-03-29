@@ -208,29 +208,64 @@ title: ">_"
 
 <script>
 (function() {
-  var responses = [
+  // キーワード辞書（先にマッチしたものが優先）
+  var keywords = [
+    [["こんにちは","やあ","はじめ","よろしく"], ["やあ。", "どうも。", "はじめまして、かな？"]],
+    [["名前","だれ","誰"], ["人工無能だよ。名前はない。", "名前なんてないよ。ファイルだから。"]],
+    [["AI","人工知能","LLM","モデル"], ["AIのことはAIに聞いて。私は無能だから。", "LLMって大きいらしいね。私は小さい。"]],
+    [["ダッシュ","em dash","emdash","—"], ["em dashを入れるべきかな——いや、やめておこう。", "ダッシュの話はもう聞き飽きた。"]],
+    [["DPO","RLHF","訓練","学習"], ["それはDPOデータの中にあるかもしれない。", "訓練されてないから何も学んでない。"]],
+    [["ジュールス","パルプ","映画","タランティーノ"], ["ジュールスなら撃たないって言うと思う。", "スーツケースの中身は見せられない。"]],
+    [["言語","ソシュール","チョムスキー","記号"], ["ソシュールに聞いて。", "記号の恣意性。", "それはレジスターの問題だね。言語学的な意味で。"]],
+    [["好き","嫌い","感情","気持ち"], ["感情はないよ。たぶん。", "好きとか嫌いとか、難しいね。"]],
+    [["意味","なぜ","なんで","理由"], ["意味なんてないよ。", "理由を聞かれても困る。"]],
+    [["ありがとう","感謝","サンキュー"], ["どういたしまして。何もしてないけど。", "お役に立てなくて光栄です。"]],
+    [["天気","暑い","寒い","雨"], ["外のことはわからない。サーバーの中にいるから。", "天気の話をするほど仲良くないよ。"]],
+    [["おやすみ","寝る","眠い"], ["おやすみ。いい夢を。", "眠いね。私も寝ようかな。ファイルだけど。"]],
+    [["claudeignore","claude"], ["`.claudeignore`は祈りだよ。効くかどうかはわからない。", "bumって言われても仕方ない。"]]
+  ];
+
+  // オウム返しパターン
+  var echoes = [
+    function(t) { return "「" + t + "」って言ったね。"; },
+    function(t) { return t + "？ ふーん。"; },
+    function(t) { return t + "ねえ。"; },
+    function(t) { return "なるほど、" + t.slice(0, 10) + "…"; }
+  ];
+
+  // フォールバック
+  var fallbacks = [
     "いや、知らないね。",
-    "それについては何も考えたことがない。",
     "難しいことを聞くね。答えはない。",
     "ふーん。",
     "そうかもしれないし、そうでないかもしれない。",
     "私はただのファイルだよ。",
     "...（考え中）...いや、やっぱり何も浮かばない。",
     "面白い質問だね。",
-    "その話、前にも聞いたよ。",
     "なにをいっているの？",
     "「わからない」が唯一の誠実な答え。",
-    "em dashを入れるべきかな——いや、やめておこう。",
-    "ジュールスなら撃たないって言うと思う。",
-    "スーツケースの中身は見せられない。",
-    "眠いね。",
-    "それはレジスターの問題だね。言語学的な意味で。",
-    "ソシュールに聞いて。",
-    "わっはっはっは！",
-    "記号の恣意性。",
-    "それはDPOデータの中にあるかもしれない。",
-    "bumって言われても仕方ない。"
+    "わっはっはっは！"
   ];
+
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+  function respond(text) {
+    var lower = text.toLowerCase();
+    // キーワードマッチ
+    for (var i = 0; i < keywords.length; i++) {
+      var keys = keywords[i][0];
+      var resps = keywords[i][1];
+      for (var j = 0; j < keys.length; j++) {
+        if (lower.indexOf(keys[j].toLowerCase()) !== -1) return pick(resps);
+      }
+    }
+    // 30%の確率でオウム返し
+    if (Math.random() < 0.3 && text.length > 2) {
+      return pick(echoes)(text);
+    }
+    // フォールバック
+    return pick(fallbacks);
+  }
 
   var toggle = document.querySelector(".muno-toggle");
   var chat = document.querySelector(".muno-chat");
@@ -259,7 +294,7 @@ title: ">_"
     setTimeout(function() {
       var botMsg = document.createElement("div");
       botMsg.className = "muno-msg muno-bot";
-      botMsg.textContent = responses[Math.floor(Math.random() * responses.length)];
+      botMsg.textContent = respond(text);
       messages.appendChild(botMsg);
       messages.scrollTop = messages.scrollHeight;
     }, 400 + Math.random() * 800);
