@@ -37,22 +37,27 @@ if (postContent && postMeta) {
   const slug = path.split("/").pop();
   const mdUrl = "https://raw.githubusercontent.com/Flowers-of-Romance/poptones/main/posts/" + slug + ".md";
   const copyBtn = document.createElement("button");
-  copyBtn.className = "copy-md-btn";
-  copyBtn.textContent = "Markdownをコピー";
-  copyBtn.addEventListener("click", function() {
-    fetch(mdUrl)
+  copyBtn.className = "copy-page-btn";
+  copyBtn.setAttribute("data-md-url", mdUrl);
+  copyBtn.title = "記事をMarkdownでコピー";
+  copyBtn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+  postMeta.appendChild(copyBtn);
+
+  document.addEventListener("click", function(e) {
+    var btn = e.target.closest(".copy-page-btn");
+    if (!btn) return;
+    e.preventDefault();
+    fetch(btn.getAttribute("data-md-url"))
       .then(function(r) { return r.text(); })
       .then(function(t) {
-        // strip frontmatter
         var body = t.replace(/^---[\s\S]*?---\s*/, "");
         return navigator.clipboard.writeText(body);
       })
       .then(function() {
-        copyBtn.textContent = "コピーしました";
-        setTimeout(function() { copyBtn.textContent = "Markdownをコピー"; }, 1500);
+        btn.classList.add("copied");
+        setTimeout(function() { btn.classList.remove("copied"); }, 1500);
       });
   });
-  postMeta.appendChild(copyBtn);
 }
 
 // Action sidebar (injected via JS to avoid layout interference)

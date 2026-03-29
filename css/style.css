@@ -186,18 +186,21 @@ section h2 {
   font-size: 0.8rem;
 }
 
-.copy-md-btn {
-  background: var(--code-bg);
+.copy-page-btn {
+  background: none;
+  border: none;
   color: var(--text-muted);
-  border: 1px solid var(--card-border);
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
   cursor: pointer;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
   transition: color 0.2s;
+  vertical-align: middle;
 }
-.copy-md-btn:hover {
+.copy-page-btn:hover {
   color: var(--text);
+}
+.copy-page-btn.copied {
+  color: var(--accent, #4ecdc4);
 }
 
 .tag {
