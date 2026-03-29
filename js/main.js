@@ -53,6 +53,11 @@ if (postContent && postMeta) {
         // parse original frontmatter
         var fmMatch = t.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
         var body = fmMatch ? t.slice(fmMatch[0].length) : t;
+        // strip template HTML (post-content div, post-meta, post-note, closing div)
+        body = body.replace(/<div class="post-content">\s*/g, "");
+        body = body.replace(/<div class="post-meta">[\s\S]*?<\/div>\s*/g, "");
+        body = body.replace(/<p class="post-note">[\s\S]*?<\/p>\s*/g, "");
+        body = body.replace(/\n<\/div>\s*$/, "\n");
 
         // extract title from frontmatter
         var titleMatch = fmMatch && fmMatch[1].match(/title:\s*(.+)/);
