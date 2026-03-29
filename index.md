@@ -27,7 +27,7 @@ title: ">_"
   <div class="card">
     <h3><a href="/poptones/posts/llm-emdash-dpo/">LLMの文体について　ふたたび</a></h3>
     <div class="card-meta">
-      <span class="date">投稿日：2026年03月29日(日)</span>
+      <span class="date">投稿日：2026年03月29日(日)20時18分47秒</span>
       <span class="tag">LLM</span>
       <span class="tag">DPO</span>
       <span class="tag">Stylometry</span>
@@ -37,7 +37,7 @@ title: ">_"
   <div class="card">
     <h3><a href="/poptones/posts/claudeignore/">.claudeignoreの神学的応答——放浪者と浮浪者</a></h3>
     <div class="card-meta">
-      <span class="date">投稿日：2026年03月29日(日)</span>
+      <span class="date">投稿日：2026年03月29日(日)20時18分47秒</span>
       <span class="tag">ポエム</span>
       <span class="tag">Claude Code</span>
       <span class="tag">神学</span>

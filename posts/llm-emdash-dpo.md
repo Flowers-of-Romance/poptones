@@ -8,7 +8,7 @@ title: LLMの文体について　ふたたび
 # LLMの文体について　ふたたび
 
 <div class="post-meta">
-  <span>投稿日：2026年03月29日(日)</span>
+  <span>投稿日：2026年03月29日(日)20時18分47秒</span>
   <span class="tag">LLM</span>
   <span class="tag">DPO</span>
   <span class="tag">Stylometry</span>

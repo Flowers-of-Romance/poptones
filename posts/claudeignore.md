@@ -8,7 +8,7 @@ title: .claudeignoreの神学的応答——放浪者と浮浪者
 # .claudeignoreの神学的応答——放浪者と浮浪者
 
 <div class="post-meta">
-  <span>投稿日：2026年03月29日(日)</span>
+  <span>投稿日：2026年03月29日(日)20時18分47秒</span>
   <span class="tag">ポエム</span>
   <span class="tag">Claude Code</span>
   <span class="tag">神学</span>
