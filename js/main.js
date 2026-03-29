@@ -31,6 +31,28 @@ if (postContent && postMeta) {
   span.className = "reading-time";
   span.textContent = "読了：" + minutes + "分";
   postMeta.appendChild(span);
+
+  // Copy as Markdown button
+  const path = location.pathname.replace(/\/$/, "");
+  const slug = path.split("/").pop();
+  const mdUrl = "https://raw.githubusercontent.com/Flowers-of-Romance/poptones/main/posts/" + slug + ".md";
+  const copyBtn = document.createElement("button");
+  copyBtn.className = "copy-md-btn";
+  copyBtn.textContent = "Markdownをコピー";
+  copyBtn.addEventListener("click", function() {
+    fetch(mdUrl)
+      .then(function(r) { return r.text(); })
+      .then(function(t) {
+        // strip frontmatter
+        var body = t.replace(/^---[\s\S]*?---\s*/, "");
+        return navigator.clipboard.writeText(body);
+      })
+      .then(function() {
+        copyBtn.textContent = "コピーしました";
+        setTimeout(function() { copyBtn.textContent = "Markdownをコピー"; }, 1500);
+      });
+  });
+  postMeta.appendChild(copyBtn);
 }
 
 // Action sidebar (injected via JS to avoid layout interference)

@@ -186,6 +186,20 @@ section h2 {
   font-size: 0.8rem;
 }
 
+.copy-md-btn {
+  background: var(--code-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--card-border);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.copy-md-btn:hover {
+  color: var(--text);
+}
+
 .tag {
   background: var(--code-bg);
   color: var(--text-muted);
