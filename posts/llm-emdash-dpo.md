@@ -398,9 +398,9 @@ Llama3はinstruction形式では「自然な散文」に見えるが、raw compl
 
 ## References
 
-- Chambers, Mike. "Dash It All! Is AI Em Dash Addiction Real?" DEV Community, 2026. https://dev.to/aws/dash-it-all-is-ai-em-dash-addiction-real-40bh
-- Goedecke, Sean. "Why do AI models use so many em-dashes?" 2025. https://www.seangoedecke.com/em-dashes/
-- OpenAI. "Expanding on what we missed with sycophancy." 2025. https://openai.com/index/expanding-on-sycophancy/
+- Chambers, Mike. "[Dash It All! Is AI Em Dash Addiction Real?](https://dev.to/aws/dash-it-all-is-ai-em-dash-addiction-real-40bh)" DEV Community, 2026.
+- Goedecke, Sean. "[Why do AI models use so many em-dashes?](https://www.seangoedecke.com/em-dashes/)" 2025.
+- OpenAI. "[Expanding on what we missed with sycophancy.](https://openai.com/index/expanding-on-sycophancy/)" 2025.
 
 
 # 用語集: LLMの書式マーカー増幅実験
