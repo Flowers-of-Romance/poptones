@@ -95,7 +95,7 @@ title: ">_"
     <button class="muno-close" aria-label="閉じる">&times;</button>
   </div>
   <div class="muno-messages">
-    <div class="muno-msg muno-bot">やあ。何も知らないよ。</div>
+    <div class="muno-msg muno-bot">やあ。ようこそ。どうしました？</div>
   </div>
   <form class="muno-input">
     <input type="text" placeholder="何か聞いてみて" autocomplete="off">
