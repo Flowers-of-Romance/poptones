@@ -69,10 +69,20 @@ if (postContent && postMeta) {
         var dateMatch = dateEl && dateEl.textContent.match(/(\d{4})年(\d{2})月(\d{2})日/);
         var date = dateMatch ? dateMatch[1] + "-" + dateMatch[2] + "-" + dateMatch[3] : "";
 
-        // description: first sentence of body text
-        var plainBody = body.replace(/<[^>]+>/g, "").replace(/^[\s#*\->\[\]()]+/, "").trim();
-        var firstSentence = plainBody.match(/^(.+?[。．.！!])/);
-        var description = firstSentence ? firstSentence[1] : plainBody.slice(0, 80);
+        // description: first sentence of body text (skip HTML blocks, headings, empty lines)
+        var lines = body.split("\n");
+        var description = "";
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (!line) continue;
+          if (line.charAt(0) === "<") continue;
+          if (line.charAt(0) === "#") continue;
+          if (line === "---") continue;
+          if (line.charAt(0) === "*" && line.charAt(line.length - 1) === "*") continue;
+          var firstSentence = line.match(/^(.+?[。．.！!])/);
+          description = firstSentence ? firstSentence[1] : line.slice(0, 80);
+          break;
+        }
 
         var newFm = "---\n";
         newFm += 'url: ' + location.href + "\n";
