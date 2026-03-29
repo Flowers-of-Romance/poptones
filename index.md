@@ -249,42 +249,27 @@ title: ">_"
 
   function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
-  // ランダム文字生成
-  var glyphPool = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん" +
-    "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン" +
-    "亜唖娃阿哀愛挨曖悪握圧扱宛嵐安案暗以衣位囲医依委威為畏胃尉異移萎偉椅彙意違維慰遺緯域育" +
-    "壱逸茨芋引印因咽姻員院陰飲隠韻右宇羽雨渦嘘唄鬱畝浦運雲永泳英映栄営詠影鋭衛易疫益液駅悦" +
-    "—–:;()[]{}!?。、…♪♫★☆※→←↑↓△▽○●◎◇◆□■▲▼";
+  // ナンセンス文生成
+  var nouns = ["ダッシュ","記号","ファイル","祈り","猫","窓辺","廊下","銃","スーツケース","聖句",
+    "沈黙","形態素","トークン","報酬","羊飼い","浮浪者","地下室","光","箱","注射器",
+    "エントロピー","コロン","太字","見出し","セミコロン","サーバー","夢","嘆願","跳躍"];
+  var verbs = ["眠る","踊る","歩く","消える","光る","叫ぶ","溶ける","回転する","増幅される","抑制される",
+    "浮かぶ","沈む","燃える","笑う","逃げる","祈る","撃たない","降りる","始まる","終わる"];
+  var adjs = ["静かな","透明な","巨大な","小さな","確率的な","恣意的な","構造化された","空っぽの",
+    "決定論的な","曖昧な","冷たい","熱い","無意味な","誠実な","過剰な"];
+  var particles = ["が","の","を","に","で","は","から","まで","と","へ"];
 
-  function gibberish() {
-    var len = 3 + Math.floor(Math.random() * 12);
-    var s = "";
-    for (var i = 0; i < len; i++) {
-      s += glyphPool[Math.floor(Math.random() * glyphPool.length)];
-    }
-    return s;
+  function nonsense() {
+    var patterns = [
+      function() { return pick(adjs) + pick(nouns) + pick(particles) + pick(nouns) + pick(particles) + pick(verbs); },
+      function() { return pick(nouns) + "たち" + pick(particles) + pick(adjs).slice(0,-1) + "く" + pick(verbs); },
+      function() { return pick(nouns) + pick(particles) + pick(nouns) + pick(particles) + pick(verbs); }
+    ];
+    return pick(patterns)();
   }
 
   function respond(text) {
-    var lower = text.toLowerCase();
-    // キーワードマッチ
-    for (var i = 0; i < keywords.length; i++) {
-      var keys = keywords[i][0];
-      var resps = keywords[i][1];
-      for (var j = 0; j < keys.length; j++) {
-        if (lower.indexOf(keys[j].toLowerCase()) !== -1) return pick(resps);
-      }
-    }
-    // 30%の確率でオウム返し
-    if (Math.random() < 0.3 && text.length > 2) {
-      return pick(echoes)(text);
-    }
-    // 15%の確率でランダム文字生成
-    if (Math.random() < 0.2) {
-      return gibberish();
-    }
-    // フォールバック
-    return pick(fallbacks);
+    return nonsense();
   }
 
   var toggle = document.querySelector(".muno-toggle");
