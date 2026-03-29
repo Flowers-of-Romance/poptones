@@ -25,6 +25,16 @@ title: ">_"
 <section>
   <h2>Posts</h2>
   <div class="card">
+    <h3><a href="/poptones/posts/llm-emdash-dpo/">LLMの文体について　ふたたび</a></h3>
+    <div class="card-meta">
+      <span class="date">投稿日：2026年03月29日(日)</span>
+      <span class="tag">LLM</span>
+      <span class="tag">DPO</span>
+      <span class="tag">Stylometry</span>
+    </div>
+    <p class="description">em dashの増幅はDPOデータの直接的な選好ではなく、文体レジスター全体のシフトの副産物。8実験で検証。</p>
+  </div>
+  <div class="card">
     <h3><a href="/poptones/posts/rejoin/">.claudeignoreの神学的応答——テクノ嘆願批判、あるいは祈りを殺すな</a></h3>
     <div class="card-meta">
       <span class="date">投稿日：2026年03月28日(土)19時38分02秒</span>
