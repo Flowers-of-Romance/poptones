@@ -29,7 +29,8 @@ if (postContent && postMeta) {
   const minutes = Math.max(1, Math.round(chars / 600 / 2));
   const span = document.createElement("span");
   span.className = "reading-time";
-  span.textContent = "読了：" + minutes + "分";
+  var isEn = location.pathname.indexOf("/posts/en/") !== -1;
+  span.textContent = isEn ? minutes + " min read" : "読了：" + minutes + "分";
   postMeta.appendChild(span);
 
   // Copy as Markdown button
