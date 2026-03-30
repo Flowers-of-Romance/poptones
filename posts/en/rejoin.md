@@ -107,13 +107,13 @@ Even after official implementation, developers will surely place some other file
 
 <section class="footnotes">
 
-<p id="fn1"><a href="#ref1">[1]</a> In her conclusion, Nyosegawa-chan merely mentions "the leap of faith (in Kierkegaard's sense)" in a parenthetical aside and does not engage with the substance of Kierkegaard's theory of faith.<span class="lang-switch"> <a href="/poptones/posts/rejoin/">Japanese</a></span></p>
+<p id="fn1"><a href="#ref1">[1]</a> In her conclusion, Nyosegawa-chan merely mentions "the leap of faith (in Kierkegaard's sense)" in a parenthetical aside and does not engage with the substance of Kierkegaard's theory of faith.</p>
 
-<p id="fn2"><a href="#ref2">[2]</a> This formulation is strictly attributed to Tertullian and is not Kierkegaard's own terminology. However, Kierkegaard's concept of the "knight of faith" shares the structure of this formulation, and for convenience, the two are used in conjunction here.<span class="lang-switch"> <a href="/poptones/posts/rejoin/">Japanese</a></span></p>
+<p id="fn2"><a href="#ref2">[2]</a> This formulation is strictly attributed to Tertullian and is not Kierkegaard's own terminology. However, Kierkegaard's concept of the "knight of faith" shares the structure of this formulation, and for convenience, the two are used in conjunction here.</p>
 
-<p id="fn3"><a href="#ref3">[3]</a> See the letter dated May 29, 1944, in Bonhoeffer's *Letters and Papers from Prison* (*Widerstand und Ergebung*): "The religious person speaks of God at the center of human life, not at its (provisional) limits of human knowledge."<span class="lang-switch"> <a href="/poptones/posts/rejoin/">Japanese</a></span></p>
+<p id="fn3"><a href="#ref3">[3]</a> See the letter dated May 29, 1944, in Bonhoeffer's *Letters and Papers from Prison* (*Widerstand und Ergebung*): "The religious person speaks of God at the center of human life, not at its (provisional) limits of human knowledge."</p>
 
-<p id="fn4"><a href="#ref4">[4]</a> *Tractatus Logico-Philosophicus*, Proposition 7. See also Proposition 6.522: "There are, indeed, things that cannot be put into words. They make themselves manifest. They are what is mystical."<span class="lang-switch"> <a href="/poptones/posts/rejoin/">Japanese</a></span></p>
+<p id="fn4"><a href="#ref4">[4]</a> *Tractatus Logico-Philosophicus*, Proposition 7. See also Proposition 6.522: "There are, indeed, things that cannot be put into words. They make themselves manifest. They are what is mystical."</p>
 
 </section>
 

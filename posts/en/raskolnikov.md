@@ -16,7 +16,7 @@ lang: en
   <span class="tag">Role-Playing</span>
   <span class="tag">ドストエフスキー</span>
 </div>
-<p class="post-note">この記事は人工無能を使って執筆されています。<span class="lang-switch"> <a href="/poptones/posts/raskolnikov/">Japanese</a></span></p>
+<p class="post-note">This article was written using an artificial unintelligence.<span class="lang-switch"> <a href="/poptones/posts/raskolnikov/">Japanese</a></span></p>
 
 ## What I Did
 
