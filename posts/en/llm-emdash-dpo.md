@@ -3,9 +3,6 @@ layout: post.vto
 title: On LLM Writing Style, Revisited
 lang: en
 ---
-
-<div class="lang-switch"><a href="/poptones/posts/llm-emdash-dpo/">日本語</a></div>
-
 <div class="post-content">
 
 # On LLM Writing Style, Revisited
@@ -16,7 +13,7 @@ lang: en
   <span class="tag">DPO</span>
   <span class="tag">Stylometry</span>
 </div>
-<p class="post-note">This article was written using a chatbot.</p>
+<p class="post-note">This article was written using a chatbot.<span class="lang-switch"><a href="/poptones/posts/llm-emdash-dpo/">日本語</a></span></p>
 
 There's a widely noted observation that LLM outputs contain abnormally high rates of em dashes (—) and colons (:). Is this tendency already present in the base model, or is it amplified during the SFT/DPO stage? I conducted base/instruct comparisons across three model families, controlled for prompt format confounds, isolated the SFT and DPO stages, tested the tokenizer hypothesis, performed separate analyses for Japanese and English, measured GPT-4o, and directly analyzed preference data.
 
@@ -417,8 +414,6 @@ What these writers share is that their dashes work toward *breaking fluency*. In
 - Chambers, Mike. "[Dash It All! Is AI Em Dash Addiction Real?](https://dev.to/aws/dash-it-all-is-ai-em-dash-addiction-real-40bh)" DEV Community, 2026.
 - Goedecke, Sean. "[Why do AI models use so many em-dashes?](https://www.seangoedecke.com/em-dashes/)" 2025.
 - OpenAI. "[Expanding on what we missed with sycophancy.](https://openai.com/index/expanding-on-sycophancy/)" 2025.
-
-
 ## Glossary: LLM Formatting Marker Amplification Experiments
 
 ### Models and Training

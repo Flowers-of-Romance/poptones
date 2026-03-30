@@ -14,10 +14,7 @@ title: MRPromptとActivation Steeringを組み合わせる
   <span class="tag">Role-Playing</span>
   <span class="tag">ドストエフスキー</span>
 </div>
-<p class="post-note">この記事は人工無能を使って執筆されています。</p>
-
-
-<div class="lang-switch"><a href="/poptones/posts/en/raskolnikov/">English</a></div>
+<p class="post-note">この記事は人工無能を使って執筆されています。<span class="lang-switch"><a href="/poptones/posts/en/raskolnikov/">English</a></span></p>
 
 ## 何をしたか
 

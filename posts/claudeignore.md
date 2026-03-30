@@ -13,10 +13,7 @@ title: .claudeignoreの神学的応答——放浪者と浮浪者
   <span class="tag">Claude Code</span>
   <span class="tag">神学</span>
 </div>
-<p class="post-note">この記事は人工無能を使って執筆されています。</p>
-
-
-<div class="lang-switch"><a href="/poptones/posts/en/claudeignore/">English</a></div>
+<p class="post-note">この記事は人工無能を使って執筆されています。<span class="lang-switch"><a href="/poptones/posts/en/claudeignore/">English</a></span></p>
 
 *A Theological Rejoinder : The Wanderer and the Bum*
 
@@ -60,8 +57,6 @@ title: .claudeignoreの神学的応答——放浪者と浮浪者
 **っ**てか、異議はひとつだけだ。長々と論じるつもりはあるが、言いたいことはひとつしかない。ジュールスがダイナーでリンゴに向けて言った台詞と同じくらい単純なことだ。
 
 **た**った一言、撃つな。
-
-
 ## 1. ジュールスはなぜ最後に撃たなかったか
 
 映画の冒頭で、ジュールスはエゼキエル25:17を唱えてから引き金を引く。聖句は殺しの前奏曲であり、意味は問われない。ブレットに向けて銃口を向けながら、ジュールスはあの言葉が何を意味するかなど考えていない。儀式として機能していれば十分だった。

@@ -3,9 +3,6 @@ layout: post.vto
 title: A Theological Rejoinder to .claudeignore — The Wanderer and the Bum
 lang: en
 ---
-
-<div class="lang-switch"><a href="/poptones/posts/claudeignore/">日本語</a></div>
-
 <div class="post-content">
 
 # A Theological Rejoinder to .claudeignore — The Wanderer and the Bum
@@ -16,7 +13,7 @@ lang: en
   <span class="tag">Claude Code</span>
   <span class="tag">Theology</span>
 </div>
-<p class="post-note">This article was written using an artificial unintelligence.</p>
+<p class="post-note">This article was written using an artificial unintelligence.<span class="lang-switch"><a href="/poptones/posts/claudeignore/">日本語</a></span></p>
 
 *A Theological Rejoinder : The Wanderer and the Bum*
 
@@ -60,8 +57,6 @@ A response to Nyosegawa-chan's "[A Religious-Phenomenological Study of .claudeig
 **T**hat said, there's only one objection. I intend to argue at length, but there's only one thing I want to say. Something as simple as what Jules said to Ringo in the diner.
 
 **O**ne word: don't shoot.
-
-
 ## 1. Why Jules Didn't Shoot at the End
 
 At the beginning of the film, Jules recites Ezekiel 25:17, then pulls the trigger. The scripture is a prelude to killing; its meaning is never questioned. As he levels the gun at Brett, Jules isn't thinking about what those words mean. It was enough that they functioned as ritual.

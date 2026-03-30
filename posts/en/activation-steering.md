@@ -3,9 +3,6 @@ layout: post.vto
 title: Dissecting an LLM with Activation Steering (Qwen3-8B)
 lang: en
 ---
-
-<div class="lang-switch"><a href="/poptones/posts/activation-steering/">日本語</a></div>
-
 ---
 
 <div class="post-content">
@@ -19,9 +16,7 @@ lang: en
   <span class="tag">Activation Steering</span>
   <span class="tag">Qwen</span>
 </div>
-<p class="post-note">This article was written with the assistance of an artificial unintelligence.</p>
-
-
+<p class="post-note">This article was written with the assistance of an artificial unintelligence.<span class="lang-switch"><a href="/poptones/posts/activation-steering/">日本語</a></span></p>
 ## What exactly is this article?
 
 You've probably asked an LLM (Large Language Model — things like ChatGPT and Claude) to "speak more cheerfully" or "respond in English." But that's just a request. There's no guarantee the LLM will comply.
@@ -102,8 +97,6 @@ The coefficient **α** (alpha) applied to the steering vector controls the inten
 - **α = 0.5**: A gentle nudge → subtle change
 - **α = 1.0**: A firm push → clear change
 - **α = 5.0**: A hard shove → output breaks down
-
-
 ## Glossary
 
 | Term | Meaning |

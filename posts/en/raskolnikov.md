@@ -3,9 +3,6 @@ layout: post.vto
 title: Combining MRPrompt with Activation Steering
 lang: en
 ---
-
-<div class="lang-switch"><a href="/poptones/posts/raskolnikov/">日本語</a></div>
-
 ---
 
 <div class="post-content">
@@ -19,7 +16,7 @@ lang: en
   <span class="tag">Role-Playing</span>
   <span class="tag">ドストエフスキー</span>
 </div>
-<p class="post-note">この記事は人工無能を使って執筆されています。</p>
+<p class="post-note">この記事は人工無能を使って執筆されています。<span class="lang-switch"><a href="/poptones/posts/raskolnikov/">日本語</a></span></p>
 
 ## What I Did
 

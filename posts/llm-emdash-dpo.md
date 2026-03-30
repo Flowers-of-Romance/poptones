@@ -13,10 +13,7 @@ title: LLMの文体について　ふたたび
   <span class="tag">DPO</span>
   <span class="tag">Stylometry</span>
 </div>
-<p class="post-note">この記事は人工無能を使って執筆されています。</p>
-
-
-<div class="lang-switch"><a href="/poptones/posts/en/llm-emdash-dpo/">English</a></div>
+<p class="post-note">この記事は人工無能を使って執筆されています。<span class="lang-switch"><a href="/poptones/posts/en/llm-emdash-dpo/">English</a></span></p>
 
 LLMの出力にem dash（—）やコロン（:）が異常に多い、という観察がある。これはベースモデルの時点で存在する傾向なのか、それともSFT/DPOの段階で増幅されるのか。3つのモデルファミリーでのbase/instruct比較、プロンプト形式の交絡統制、SFT/DPO段階の分離、トークナイザー仮説の検証、日本語と英語の分離分析、GPT-4oの計測、preference dataの直接分析を行った。
 
@@ -417,8 +414,6 @@ Llama3はinstruction形式では「自然な散文」に見えるが、raw compl
 - Chambers, Mike. "[Dash It All! Is AI Em Dash Addiction Real?](https://dev.to/aws/dash-it-all-is-ai-em-dash-addiction-real-40bh)" DEV Community, 2026.
 - Goedecke, Sean. "[Why do AI models use so many em-dashes?](https://www.seangoedecke.com/em-dashes/)" 2025.
 - OpenAI. "[Expanding on what we missed with sycophancy.](https://openai.com/index/expanding-on-sycophancy/)" 2025.
-
-
 ## 用語集: LLMの書式マーカー増幅実験
 
 ### モデルと訓練
