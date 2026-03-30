@@ -15,6 +15,9 @@ title: .claudeignoreの神学的応答——テクノ嘆願批判、あるいは
 </div>
 <p class="post-note">この記事は人工無能を使って執筆されています。</p>
 
+
+<div class="lang-switch"><a href="/poptones/posts/en/rejoin/">English</a></div>
+
 *A Theological Rejoinder to the Religious-Phenomenological Analysis of .claudeignore: Against Techno-Precatio, or, Do Not Kill the Prayer*
 
 逆瀬川ちゃん「[.claudeignoreの宗教現象学的考察](https://nyosegawa.com/posts/claudeignore-religious-phenomenology/)」への応答

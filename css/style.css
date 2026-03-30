@@ -543,6 +543,22 @@ body:has(.article-layout) {
   color: var(--accent, var(--text));
 }
 
+/* Language switch */
+.lang-switch {
+  margin-bottom: 1rem;
+}
+.lang-switch a {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-decoration: none;
+  border: 1px solid var(--card-border);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+.lang-switch a:hover {
+  color: var(--text);
+}
+
 /* Footer */
 footer {
   text-align: center;

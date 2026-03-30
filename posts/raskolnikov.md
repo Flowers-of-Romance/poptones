@@ -16,6 +16,9 @@ title: MRPromptとActivation Steeringを組み合わせる
 </div>
 <p class="post-note">この記事は人工無能を使って執筆されています。</p>
 
+
+<div class="lang-switch"><a href="/poptones/posts/en/raskolnikov/">English</a></div>
+
 ## 何をしたか
 
 LLMに「ラスコリーニコフとして答えて」と頼むと、それっぽいことは言います。ですが「それっぽい」だけです。知識としてキャラクターを知っている他人の文章になります。

@@ -15,6 +15,9 @@ title: .claudeignoreの神学的応答——放浪者と浮浪者
 </div>
 <p class="post-note">この記事は人工無能を使って執筆されています。</p>
 
+
+<div class="lang-switch"><a href="/poptones/posts/en/claudeignore/">English</a></div>
+
 *A Theological Rejoinder : The Wanderer and the Bum*
 
 逆瀬川ちゃん「[.claudeignoreの宗教現象学的考察](https://nyosegawa.com/posts/claudeignore-religious-phenomenology/)」への応答

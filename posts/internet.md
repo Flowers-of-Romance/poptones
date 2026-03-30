@@ -16,6 +16,9 @@ title: インターネットと「からっぽの洞窟」
 <p class="post-note">この記事は人工無能を使って執筆されています。</p>
 
 
+
+<div class="lang-switch"><a href="/poptones/posts/en/internet/">English</a></div>
+
 ## AIがネットをつまらなくしたという物語
 
 最近、「AIのせいでインターネットがつまらなくなった」という話をよく聞く。
