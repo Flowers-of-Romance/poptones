@@ -13,7 +13,7 @@ lang: en
   <span class="tag">Claude Code</span>
   <span class="tag">Theology</span>
 </div>
-<p class="post-note">This article was written using an artificial unintelligence.<span class="lang-switch"><a href="/poptones/posts/claudeignore/">日本語</a></span></p>
+<p class="post-note">This article was written using an artificial unintelligence.<span class="lang-switch"> <a href="/poptones/posts/claudeignore/">Japanese</a></span></p>
 
 *A Theological Rejoinder : The Wanderer and the Bum*
 

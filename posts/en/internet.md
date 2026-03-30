@@ -13,7 +13,7 @@ lang: en
   <span class="tag">Internet</span>
   <span class="tag">AI</span>
 </div>
-<p class="post-note">This article was written with the assistance of a chatbot.<span class="lang-switch"><a href="/poptones/posts/internet/">日本語</a></span></p>
+<p class="post-note">This article was written with the assistance of a chatbot.<span class="lang-switch"> <a href="/poptones/posts/internet/">Japanese</a></span></p>
 ## The Story That AI Made the Internet Boring
 
 Lately, I keep hearing that "AI has made the internet boring."
@@ -94,17 +94,17 @@ And now, for the first time in a long while, we find ourselves swept up in the o
 
 **Footnotes**
 
-<p id="fn1"><a href="#ref1">[1]</a> Morley Robertson, "AI's 'Invasion' Has Stripped the Internet of Context and Made It Boring," *Weekly Playboy*, issue released January 26, 2026 (column series *A Provocative Plan for Japan's Revolution*, No. 490). Morley Robertson died of esophageal cancer on January 29, 2026, at the age of 63. This column was effectively his final published work.<span class="lang-switch"><a href="/poptones/posts/internet/">日本語</a></span></p>
+<p id="fn1"><a href="#ref1">[1]</a> Morley Robertson, "AI's 'Invasion' Has Stripped the Internet of Context and Made It Boring," *Weekly Playboy*, issue released January 26, 2026 (column series *A Provocative Plan for Japan's Revolution*, No. 490). Morley Robertson died of esophageal cancer on January 29, 2026, at the age of 63. This column was effectively his final published work.<span class="lang-switch"> <a href="/poptones/posts/internet/">Japanese</a></span></p>
 
-<p id="fn2"><a href="#ref2">[2]</a> Clifford Stoll, <em>Silicon Snake Oil: Second Thoughts on the Information Highway</em>, Doubleday, 1995. Japanese edition: translated by Akira Kurahone, published by Soshisha, 1997.<span class="lang-switch"><a href="/poptones/posts/internet/">日本語</a></span></p>
+<p id="fn2"><a href="#ref2">[2]</a> Clifford Stoll, <em>Silicon Snake Oil: Second Thoughts on the Information Highway</em>, Doubleday, 1995. Japanese edition: translated by Akira Kurahone, published by Soshisha, 1997.<span class="lang-switch"> <a href="/poptones/posts/internet/">Japanese</a></span></p>
 
-<p id="fn3"><a href="#ref3">[3]</a> Clifford Stoll, <em>The Cuckoo's Egg: Tracking a Spy Through the Maze of Computer Espionage</em>, Doubleday, 1989. Japanese edition: translated by Hiroki Ike, published by Soshisha, 1991.<span class="lang-switch"><a href="/poptones/posts/internet/">日本語</a></span></p>
+<p id="fn3"><a href="#ref3">[3]</a> Clifford Stoll, <em>The Cuckoo's Egg: Tracking a Spy Through the Maze of Computer Espionage</em>, Doubleday, 1989. Japanese edition: translated by Hiroki Ike, published by Soshisha, 1991.<span class="lang-switch"> <a href="/poptones/posts/internet/">Japanese</a></span></p>
 
-<p id="fn4"><a href="#ref4">[4]</a> Ibid., p. 135. I haven't actually read the book, so this is cited secondhand from a review. Both the quip about it being "pretty funny" and this very footnote were written by Claude. You could fairly argue that if I'm going to write about a book I should read it first, but a new deluxe edition of Deleuze and Guattari just came out, so…<span class="lang-switch"><a href="/poptones/posts/internet/">日本語</a></span></p>
+<p id="fn4"><a href="#ref4">[4]</a> Ibid., p. 135. I haven't actually read the book, so this is cited secondhand from a review. Both the quip about it being "pretty funny" and this very footnote were written by Claude. You could fairly argue that if I'm going to write about a book I should read it first, but a new deluxe edition of Deleuze and Guattari just came out, so…<span class="lang-switch"> <a href="/poptones/posts/internet/">Japanese</a></span></p>
 
-<p id="fn5"><a href="#ref5">[5]</a> Ibid., p. 52. An anecdote involving Dr. Li Fang. On p. 244 of the same book, Stoll writes: "The computer itself has no insight. What cultivates that kind of thinking is reading, writing, analysis, and teachers."<span class="lang-switch"><a href="/poptones/posts/internet/">日本語</a></span></p>
+<p id="fn5"><a href="#ref5">[5]</a> Ibid., p. 52. An anecdote involving Dr. Li Fang. On p. 244 of the same book, Stoll writes: "The computer itself has no insight. What cultivates that kind of thinking is reading, writing, analysis, and teachers."<span class="lang-switch"> <a href="/poptones/posts/internet/">Japanese</a></span></p>
 
-<p id="fn6"><a href="#ref6">[6]</a> Kobayashi Hideo, "Various Designs" (*Samазama naru Ishō*), *Kaizō*, September 1929. Kobayashi's experience with Rimbaud is also recounted repeatedly in works such as "Letter to X" (1932).<span class="lang-switch"><a href="/poptones/posts/internet/">日本語</a></span></p>
+<p id="fn6"><a href="#ref6">[6]</a> Kobayashi Hideo, "Various Designs" (*Samазama naru Ishō*), *Kaizō*, September 1929. Kobayashi's experience with Rimbaud is also recounted repeatedly in works such as "Letter to X" (1932).<span class="lang-switch"> <a href="/poptones/posts/internet/">Japanese</a></span></p>
 
 </section>
 

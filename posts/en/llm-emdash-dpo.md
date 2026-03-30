@@ -13,7 +13,7 @@ lang: en
   <span class="tag">DPO</span>
   <span class="tag">Stylometry</span>
 </div>
-<p class="post-note">This article was written using a chatbot.<span class="lang-switch"><a href="/poptones/posts/llm-emdash-dpo/">日本語</a></span></p>
+<p class="post-note">This article was written using a chatbot.<span class="lang-switch"> <a href="/poptones/posts/llm-emdash-dpo/">Japanese</a></span></p>
 
 There's a widely noted observation that LLM outputs contain abnormally high rates of em dashes (—) and colons (:). Is this tendency already present in the base model, or is it amplified during the SFT/DPO stage? I conducted base/instruct comparisons across three model families, controlled for prompt format confounds, isolated the SFT and DPO stages, tested the tokenizer hypothesis, performed separate analyses for Japanese and English, measured GPT-4o, and directly analyzed preference data.
 
