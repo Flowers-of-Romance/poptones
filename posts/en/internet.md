@@ -14,6 +14,7 @@ lang: en
   <span class="tag">AI</span>
 </div>
 <p class="post-note">This article was written with the assistance of a chatbot.<span class="lang-switch"> <a href="/poptones/posts/internet/">Japanese</a></span></p>
+
 ## The Story That AI Made the Internet Boring
 
 Lately, I keep hearing that "AI has made the internet boring."

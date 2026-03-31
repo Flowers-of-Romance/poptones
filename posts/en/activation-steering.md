@@ -16,6 +16,7 @@ lang: en
   <span class="tag">Qwen</span>
 </div>
 <p class="post-note">This article was written with the assistance of an artificial unintelligence.<span class="lang-switch"> <a href="/poptones/posts/activation-steering/">Japanese</a></span></p>
+
 ## What exactly is this article?
 
 You've probably asked an LLM (Large Language Model — things like ChatGPT and Claude) to "speak more cheerfully" or "respond in English." But that's just a request. There's no guarantee the LLM will comply.
