@@ -3,7 +3,6 @@ layout: post.vto
 title: Dissecting an LLM with Activation Steering (Qwen3-8B)
 lang: en
 ---
----
 
 <div class="post-content">
 

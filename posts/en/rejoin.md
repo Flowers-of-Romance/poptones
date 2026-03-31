@@ -3,7 +3,6 @@ layout: post.vto
 title: A Theological Rejoinder to .claudeignore — Against Techno-Precatio, or, Do Not Kill the Prayer
 lang: en
 ---
----
 
 <div class="post-content">
 
