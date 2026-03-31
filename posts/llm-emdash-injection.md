@@ -14,7 +14,7 @@ title: "LLMの文体について em dash注入実験"
   <span class="tag">SFT</span>
   <span class="tag">Stylometry</span>
 </div>
-<p class="post-note">この記事は人工無能を使って執筆されています。</p>
+<p class="post-note">この記事は人工無能を使って執筆されています。<span class="lang-switch"><a href="/poptones/posts/en/llm-emdash-injection/">English</a></span></p>
 
 ## 前回の結論
 
