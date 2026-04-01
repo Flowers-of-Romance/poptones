@@ -548,7 +548,8 @@ body:has(.article-layout) {
 
 /* Language switch */
 .lang-switch a,
-.lang-switch .hex-toggle {
+.lang-switch .hex-toggle,
+.lang-switch .bin-toggle {
   color: var(--text-muted);
   font-size: 0.8rem;
   text-decoration: none;
@@ -561,10 +562,12 @@ body:has(.article-layout) {
   vertical-align: middle;
 }
 .lang-switch a:hover,
-.lang-switch .hex-toggle:hover {
+.lang-switch .hex-toggle:hover,
+.lang-switch .bin-toggle:hover {
   color: var(--text);
 }
-.lang-switch .hex-toggle.active {
+.lang-switch .hex-toggle.active,
+.lang-switch .bin-toggle.active {
   background: var(--code-bg);
   color: var(--accent);
   border-color: var(--accent);

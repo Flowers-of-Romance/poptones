@@ -187,11 +187,13 @@ if (postContent && postMeta) {
   sidebar.querySelector(".facebook-btn").addEventListener("click", function() { showBubble(this, "Facebookはちょっと"); });
 })();
 
-// Hex (Unicode codepoint) toggle
+// Radix toggle (hex / binary)
 (function() {
-  var btn = document.querySelector(".hex-toggle");
-  if (!btn) return;
-  var active = false;
+  var hexBtn = document.querySelector(".hex-toggle");
+  var binBtn = document.querySelector(".bin-toggle");
+  if (!hexBtn && !binBtn) return;
+
+  var activeMode = null; // "hex" | "bin" | null
   var saved = [];
 
   function getTextNodes(el) {
@@ -201,40 +203,53 @@ if (postContent && postMeta) {
       var n = walker.currentNode;
       var tag = n.parentElement && n.parentElement.tagName;
       if (tag === "SCRIPT" || tag === "STYLE" || tag === "CODE" || tag === "PRE") continue;
-      if (n.parentElement.closest(".hex-toggle, .theme-toggle, .muno-chat, .lang-switch")) continue;
+      if (n.parentElement.closest(".hex-toggle, .bin-toggle, .theme-toggle, .muno-chat, .lang-switch")) continue;
       if (n.textContent.trim()) nodes.push(n);
     }
     return nodes;
   }
 
-  function toHex(text) {
+  function convert(text, radix, pad) {
     var out = [];
     for (var i = 0; i < text.length; i++) {
       var ch = text[i];
       if (ch === " " || ch === "\n" || ch === "\t") { out.push(ch); continue; }
       var cp = text.codePointAt(i);
-      if (cp > 0xFFFF) i++; // surrogate pair
-      out.push(cp.toString(16).toUpperCase().padStart(4, "0"));
+      if (cp > 0xFFFF) i++;
+      out.push(cp.toString(radix).toUpperCase().padStart(pad, "0"));
     }
     return out.join(" ");
   }
 
-  btn.addEventListener("click", function() {
-    if (!active) {
-      saved = [];
-      var nodes = getTextNodes(document.body);
-      nodes.forEach(function(n) {
-        saved.push({ node: n, text: n.textContent });
-        n.textContent = toHex(n.textContent);
-      });
-      btn.classList.add("active");
-      active = true;
-    } else {
-      saved.forEach(function(s) { s.node.textContent = s.text; });
-      saved = [];
-      btn.classList.remove("active");
-      active = false;
-    }
+  function restore() {
+    saved.forEach(function(s) { s.node.textContent = s.text; });
+    saved = [];
+    if (hexBtn) hexBtn.classList.remove("active");
+    if (binBtn) binBtn.classList.remove("active");
+    activeMode = null;
+  }
+
+  function apply(mode, radix, pad, btn) {
+    if (activeMode) restore();
+    if (activeMode === mode) return; // was toggling off
+    saved = [];
+    var nodes = getTextNodes(document.body);
+    nodes.forEach(function(n) {
+      saved.push({ node: n, text: n.textContent });
+      n.textContent = convert(n.textContent, radix, pad);
+    });
+    btn.classList.add("active");
+    activeMode = mode;
+  }
+
+  if (hexBtn) hexBtn.addEventListener("click", function() {
+    if (activeMode === "hex") { restore(); return; }
+    apply("hex", 16, 4, hexBtn);
+  });
+
+  if (binBtn) binBtn.addEventListener("click", function() {
+    if (activeMode === "bin") { restore(); return; }
+    apply("bin", 2, 16, binBtn);
   });
 })();
 
