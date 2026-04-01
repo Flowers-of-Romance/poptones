@@ -242,14 +242,80 @@ if (postContent && postMeta) {
     activeMode = mode;
   }
 
+  // Dump mode
+  var dumpBtn = document.querySelector(".dump-toggle");
+  var dumpOverlay = null;
+
+  function textToUtf8Bytes(text) {
+    var bytes = [];
+    for (var i = 0; i < text.length; i++) {
+      var cp = text.codePointAt(i);
+      if (cp > 0xFFFF) i++;
+      if (cp < 0x80) { bytes.push(cp); }
+      else if (cp < 0x800) { bytes.push(0xC0 | (cp >> 6), 0x80 | (cp & 0x3F)); }
+      else if (cp < 0x10000) { bytes.push(0xE0 | (cp >> 12), 0x80 | ((cp >> 6) & 0x3F), 0x80 | (cp & 0x3F)); }
+      else { bytes.push(0xF0 | (cp >> 18), 0x80 | ((cp >> 12) & 0x3F), 0x80 | ((cp >> 6) & 0x3F), 0x80 | (cp & 0x3F)); }
+    }
+    return bytes;
+  }
+
+  function hexdump(text) {
+    var bytes = textToUtf8Bytes(text);
+    var lines = [];
+    for (var off = 0; off < bytes.length; off += 16) {
+      var chunk = bytes.slice(off, off + 16);
+      var addr = off.toString(16).toUpperCase().padStart(8, "0");
+      var hex = [];
+      for (var j = 0; j < 16; j++) {
+        if (j < chunk.length) hex.push(chunk[j].toString(16).toUpperCase().padStart(2, "0"));
+        else hex.push("  ");
+      }
+      var hexStr = hex.slice(0,8).join(" ") + "  " + hex.slice(8).join(" ");
+      var ascii = "";
+      for (var j = 0; j < chunk.length; j++) {
+        var b = chunk[j];
+        ascii += (b >= 0x20 && b < 0x7F) ? String.fromCharCode(b) : ".";
+      }
+      lines.push(addr + "  " + hexStr + "  |" + ascii + "|");
+    }
+    return lines.join("\n");
+  }
+
+  function showDump() {
+    var text = "";
+    var nodes = getTextNodes(document.body);
+    nodes.forEach(function(n) { text += n.textContent; });
+    dumpOverlay = document.createElement("div");
+    dumpOverlay.className = "dump-overlay";
+    dumpOverlay.textContent = hexdump(text);
+    dumpOverlay.addEventListener("click", function() { hideDump(); });
+    document.body.appendChild(dumpOverlay);
+    dumpBtn.classList.add("active");
+    activeMode = "dump";
+  }
+
+  function hideDump() {
+    if (dumpOverlay) { dumpOverlay.remove(); dumpOverlay = null; }
+    if (dumpBtn) dumpBtn.classList.remove("active");
+    activeMode = null;
+  }
+
   if (hexBtn) hexBtn.addEventListener("click", function() {
+    if (activeMode === "dump") hideDump();
     if (activeMode === "hex") { restore(); return; }
     apply("hex", 16, 4, hexBtn);
   });
 
   if (binBtn) binBtn.addEventListener("click", function() {
+    if (activeMode === "dump") hideDump();
     if (activeMode === "bin") { restore(); return; }
     apply("bin", 2, 16, binBtn);
+  });
+
+  if (dumpBtn) dumpBtn.addEventListener("click", function() {
+    if (activeMode === "hex" || activeMode === "bin") restore();
+    if (activeMode === "dump") { hideDump(); return; }
+    showDump();
   });
 })();
 

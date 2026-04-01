@@ -549,7 +549,8 @@ body:has(.article-layout) {
 /* Language switch */
 .lang-switch a,
 .lang-switch .hex-toggle,
-.lang-switch .bin-toggle {
+.lang-switch .bin-toggle,
+.lang-switch .dump-toggle {
   color: var(--text-muted);
   font-size: 0.8rem;
   text-decoration: none;
@@ -563,14 +564,31 @@ body:has(.article-layout) {
 }
 .lang-switch a:hover,
 .lang-switch .hex-toggle:hover,
-.lang-switch .bin-toggle:hover {
+.lang-switch .bin-toggle:hover,
+.lang-switch .dump-toggle:hover {
   color: var(--text);
 }
 .lang-switch .hex-toggle.active,
-.lang-switch .bin-toggle.active {
+.lang-switch .bin-toggle.active,
+.lang-switch .dump-toggle.active {
   background: var(--code-bg);
   color: var(--accent);
   border-color: var(--accent);
+}
+
+/* Dump overlay */
+.dump-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  color: #00ff00;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  padding: 1.5rem;
+  overflow-y: auto;
+  z-index: 9999;
+  white-space: pre;
 }
 
 /* Footer */
