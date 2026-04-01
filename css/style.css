@@ -547,16 +547,27 @@ body:has(.article-layout) {
 }
 
 /* Language switch */
-.lang-switch a {
+.lang-switch a,
+.lang-switch .hex-toggle {
   color: var(--text-muted);
   font-size: 0.8rem;
   text-decoration: none;
   border: 1px solid var(--card-border);
   padding: 0.15rem 0.5rem;
   border-radius: 4px;
+  background: none;
+  cursor: pointer;
+  font-family: 'Fira Code', monospace;
+  vertical-align: middle;
 }
-.lang-switch a:hover {
+.lang-switch a:hover,
+.lang-switch .hex-toggle:hover {
   color: var(--text);
+}
+.lang-switch .hex-toggle.active {
+  background: var(--code-bg);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 /* Footer */

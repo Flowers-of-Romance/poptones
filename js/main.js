@@ -187,6 +187,57 @@ if (postContent && postMeta) {
   sidebar.querySelector(".facebook-btn").addEventListener("click", function() { showBubble(this, "Facebookはちょっと"); });
 })();
 
+// Hex (Unicode codepoint) toggle
+(function() {
+  var btn = document.querySelector(".hex-toggle");
+  if (!btn) return;
+  var active = false;
+  var saved = [];
+
+  function getTextNodes(el) {
+    var nodes = [];
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    while (walker.nextNode()) {
+      var n = walker.currentNode;
+      var tag = n.parentElement && n.parentElement.tagName;
+      if (tag === "SCRIPT" || tag === "STYLE" || tag === "CODE" || tag === "PRE") continue;
+      if (n.parentElement.closest(".hex-toggle, .theme-toggle, .muno-chat, .lang-switch")) continue;
+      if (n.textContent.trim()) nodes.push(n);
+    }
+    return nodes;
+  }
+
+  function toHex(text) {
+    var out = [];
+    for (var i = 0; i < text.length; i++) {
+      var ch = text[i];
+      if (ch === " " || ch === "\n" || ch === "\t") { out.push(ch); continue; }
+      var cp = text.codePointAt(i);
+      if (cp > 0xFFFF) i++; // surrogate pair
+      out.push(cp.toString(16).toUpperCase().padStart(4, "0"));
+    }
+    return out.join(" ");
+  }
+
+  btn.addEventListener("click", function() {
+    if (!active) {
+      saved = [];
+      var nodes = getTextNodes(document.body);
+      nodes.forEach(function(n) {
+        saved.push({ node: n, text: n.textContent });
+        n.textContent = toHex(n.textContent);
+      });
+      btn.classList.add("active");
+      active = true;
+    } else {
+      saved.forEach(function(s) { s.node.textContent = s.text; });
+      saved = [];
+      btn.classList.remove("active");
+      active = false;
+    }
+  });
+})();
+
 // Auto-generate heading IDs and TOC
 const toc = document.querySelector(".toc-sidebar .toc") || document.querySelector(".toc");
 if (toc) {
