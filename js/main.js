@@ -312,11 +312,15 @@ if (postContent && postMeta) {
     apply("bin", 2, 16, binBtn);
   });
 
-  if (dumpBtn) dumpBtn.addEventListener("click", function() {
-    if (activeMode === "hex" || activeMode === "bin") restore();
-    if (activeMode === "dump") { hideDump(); return; }
+  if (dumpBtn) {
+    dumpBtn.addEventListener("click", function() {
+      if (activeMode === "hex" || activeMode === "bin") restore();
+      if (activeMode === "dump") { hideDump(); return; }
+      showDump();
+    });
+    // Start in dump mode
     showDump();
-  });
+  }
 })();
 
 // Auto-generate heading IDs and TOC
