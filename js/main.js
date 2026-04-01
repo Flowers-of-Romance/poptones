@@ -318,8 +318,10 @@ if (postContent && postMeta) {
       if (activeMode === "dump") { hideDump(); return; }
       showDump();
     });
-    // Start in dump mode
-    showDump();
+    // Start in dump mode unless coming from language switch
+    if (!new URLSearchParams(location.search).has("lang")) {
+      showDump();
+    }
   }
 })();
 
