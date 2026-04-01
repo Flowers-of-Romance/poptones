@@ -27,7 +27,7 @@ title: ">_"
   <div class="card">
     <h3><a href="/poptones/posts/llm-emdash-injection/">LLMの文体について　em dash注入実験</a></h3>
     <div class="card-meta">
-      <span class="date">投稿日：2026年04月01日(火)</span>
+      <span class="date">投稿日：2026年04月01日(火)23時19分24秒</span>
       <span class="tag">LLM</span>
       <span class="tag">SFT</span>
       <span class="tag">Stylometry</span>

@@ -8,7 +8,7 @@ title: "LLMの文体について em dash注入実験"
 # LLMの文体について　em dash注入実験
 
 <div class="post-meta">
-  <span>投稿日：2026年04月01日(火)</span>
+  <span>投稿日：2026年04月01日(火)23時19分24秒</span>
   <span class="tag">LLM</span>
   <span class="tag">SFT</span>
   <span class="tag">Stylometry</span>
