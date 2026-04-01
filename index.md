@@ -25,6 +25,16 @@ title: ">_"
 <section>
   <h2>Posts</h2>
   <div class="card">
+    <h3><a href="/poptones/posts/llm-emdash-injection/">LLMの文体について　em dash注入実験</a></h3>
+    <div class="card-meta">
+      <span class="date">投稿日：2026年04月01日(火)</span>
+      <span class="tag">LLM</span>
+      <span class="tag">SFT</span>
+      <span class="tag">Stylometry</span>
+    </div>
+    <p class="description">em dashを注入するとコロンも増える？ Tulu 3データSFTと自己注入SFTの比較で、em dashは他の句読点から独立していることを示す。</p>
+  </div>
+  <div class="card">
     <h3><a href="/poptones/posts/llm-emdash-dpo/">LLMの文体について　ふたたび</a></h3>
     <div class="card-meta">
       <span class="date">投稿日：2026年03月29日(日)20時18分47秒</span>

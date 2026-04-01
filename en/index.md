@@ -25,6 +25,16 @@ title: ">_"
 <section>
   <h2>Posts</h2>
   <div class="card">
+    <h3><a href="/poptones/posts/en/llm-emdash-injection/">On LLM Writing Style: Em Dash Injection Experiment</a></h3>
+    <div class="card-meta">
+      <span class="date">April 1, 2026</span>
+      <span class="tag">LLM</span>
+      <span class="tag">SFT</span>
+      <span class="tag">Stylometry</span>
+    </div>
+    <p class="description">Does injecting em dashes also increase colons? Comparing Tulu 3 data SFT with self-injection SFT shows em dashes are independent from other punctuation.</p>
+  </div>
+  <div class="card">
     <h3><a href="/poptones/posts/en/llm-emdash-dpo/">On LLM Writing Style, Revisited</a></h3>
     <div class="card-meta">
       <span class="date">March 29, 2026</span>
