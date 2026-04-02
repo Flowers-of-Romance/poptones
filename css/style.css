@@ -65,11 +65,10 @@ a:active {
 }
 
 .site-logo {
-  width: 120px;
+  max-width: 100%;
   height: auto;
   margin: 0 auto 1rem;
   display: block;
-  border-radius: 50%;
 }
 
 .header h1 {
