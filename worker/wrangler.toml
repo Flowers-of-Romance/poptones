@@ -1,0 +1,7 @@
+name = "anond"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "DIARY"
+id = "f44750987d50446d8cf29b40e9853f83"

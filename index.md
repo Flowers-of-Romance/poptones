@@ -97,6 +97,14 @@ title: ">_"
   </div>
 </section>
 
+<section>
+  <h2>Other</h2>
+  <div class="card">
+    <h3><a href="/poptones/anond/">匿名ダイアリー</a></h3>
+    <p class="description">誰でも書ける。誰も読まない。</p>
+  </div>
+</section>
+
 <!-- 人工無能チャット -->
 <button class="muno-toggle" aria-label="チャット">?</button>
 <div class="muno-chat" hidden>
