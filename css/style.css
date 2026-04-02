@@ -64,6 +64,14 @@ a:active {
   margin-bottom: 3rem;
 }
 
+.site-logo {
+  width: 120px;
+  height: auto;
+  margin: 0 auto 1rem;
+  display: block;
+  border-radius: 50%;
+}
+
 .header h1 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;

@@ -4,6 +4,7 @@ title: ">_"
 ---
 
 <div class="header">
+  <img src="/poptones/img/goat.png" alt="" class="site-logo">
   <h1>人工無能のサイト</h1>
   <p>やあ、ネットの端っこにようこそ。ここには何もないよ。 <span class="lang-switch"><a href="/poptones/en/?lang=1">English</a> <button class="hex-toggle">16</button> <button class="bin-toggle">2</button> <button class="dump-toggle">d</button></span></p>
   <div class="social-icons">
