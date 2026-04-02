@@ -70,6 +70,17 @@ title: "交換日記"
   line-height: 1.8;
   white-space: pre-wrap;
 }
+.anond-entry-preview {
+  font-size: 0.95rem;
+  color: var(--text);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.anond-entry-preview:hover {
+  color: var(--accent);
+}
 .anond-more {
   text-align: center;
   margin-top: 1rem;
@@ -112,9 +123,25 @@ title: "交換日記"
   function renderEntry(entry) {
     var div = document.createElement("div");
     div.className = "anond-entry";
+    var firstLine = entry.text.split("\n")[0];
+    var hasMore = entry.text.indexOf("\n") !== -1;
     div.innerHTML = '<div class="anond-entry-meta">' + timeAgo(entry.ts) + '</div>'
-      + '<div class="anond-entry-text"></div>';
+      + '<div class="anond-entry-preview"></div>'
+      + '<div class="anond-entry-text" hidden></div>';
+    div.querySelector(".anond-entry-preview").textContent = firstLine;
     div.querySelector(".anond-entry-text").textContent = entry.text;
+    if (hasMore) {
+      div.querySelector(".anond-entry-preview").addEventListener("click", function() {
+        var text = div.querySelector(".anond-entry-text");
+        var preview = div.querySelector(".anond-entry-preview");
+        if (text.hidden) { text.hidden = false; preview.hidden = true; }
+      });
+      div.querySelector(".anond-entry-text").addEventListener("click", function() {
+        var text = div.querySelector(".anond-entry-text");
+        var preview = div.querySelector(".anond-entry-preview");
+        text.hidden = true; preview.hidden = false;
+      });
+    }
     return div;
   }
 
