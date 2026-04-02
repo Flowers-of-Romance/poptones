@@ -115,6 +115,34 @@ a:active {
   transition: background 0.3s;
 }
 
+/* Diary link */
+.diary-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: 'Fira Code', monospace;
+}
+.diary-link:hover {
+  color: var(--accent);
+  background: var(--code-bg);
+}
+.diary-link:visited {
+  color: var(--text-muted);
+}
+
 /* Section */
 section {
   margin-bottom: 3rem;
