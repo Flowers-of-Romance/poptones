@@ -143,6 +143,11 @@ a:active {
   color: var(--text-muted);
 }
 
+/* Hide diary-link on diary page (replaced by back button) */
+body:has(.diary-back) .diary-link {
+  display: none;
+}
+
 /* Section */
 section {
   margin-bottom: 3rem;

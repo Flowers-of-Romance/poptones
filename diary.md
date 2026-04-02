@@ -3,6 +3,8 @@ layout: layout.vto
 title: "交換日記"
 ---
 
+<a class="diary-back" href="/poptones/">&lt;</a>
+
 <div class="header">
   <h1>交換日記</h1>
   <p>誰でも書ける。誰も読まない。</p>
@@ -16,6 +18,31 @@ title: "交換日記"
 <div class="anond-entries"></div>
 
 <style>
+.diary-back {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: 'Fira Code', monospace;
+  transition: background 0.3s;
+}
+.diary-back:hover {
+  color: var(--accent);
+  background: var(--code-bg);
+}
+.diary-back:visited {
+  color: var(--text-muted);
+}
 .anond-post {
   margin-bottom: 2rem;
 }
