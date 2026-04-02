@@ -1,10 +1,10 @@
 ---
 layout: layout.vto
-title: "匿名ダイアリー"
+title: "交換日記"
 ---
 
 <div class="header">
-  <h1>匿名ダイアリー</h1>
+  <h1>交換日記</h1>
   <p>誰でも書ける。誰も読まない。</p>
 </div>
 

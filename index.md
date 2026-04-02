@@ -100,7 +100,7 @@ title: ">_"
 <section>
   <h2>Other</h2>
   <div class="card">
-    <h3><a href="/poptones/anond/">匿名ダイアリー</a></h3>
+    <h3><a href="/poptones/anond/">交換日記</a></h3>
     <p class="description">誰でも書ける。誰も読まない。</p>
   </div>
 </section>
