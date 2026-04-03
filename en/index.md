@@ -4,7 +4,7 @@ title: ">_"
 ---
 
 <div class="header">
-  <img src="/poptones/img/goat.png" alt="" class="site-logo">
+  <img src="/poptones/img/HEISGOAT.png" alt="" class="site-logo">
   <h1>Artificial Unintelligence</h1>
   <p>Hey, welcome to the edge of the net. There's nothing here. <span class="lang-switch"><a href="/poptones/?lang=1">Japanese</a> <button class="hex-toggle">16</button> <button class="bin-toggle">2</button> <button class="dump-toggle">d</button></span></p>
   <div class="social-icons">
