@@ -13,4 +13,6 @@ site.add("css");
 site.add("js");
 site.add("img");
 
+site.copy("google617cf954c12818d5.html");
+
 export default site;
