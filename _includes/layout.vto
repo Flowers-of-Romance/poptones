@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }}</title>
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://flowers-of-romance.github.io{{ url }}" />
+  <meta property="og:site_name" content="人工無能のサイト" />
+  {{ if description }}<meta property="og:description" content="{{ description }}" />{{ /if }}
+  {{ if image }}<meta property="og:image" content="https://flowers-of-romance.github.io{{ image }}" />{{ /if }}
+  <meta name="twitter:card" content="{{ if image }}summary_large_image{{ else }}summary{{ /if }}" />
   <link rel="stylesheet" href="/poptones/css/style.css">
 </head>
 <body>
