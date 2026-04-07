@@ -8,7 +8,7 @@ lang: en
 # Reproducing the Gemini "Kyo" Bug with Gemma 4 — Tokenizer, Embedding, and Attention Sink Measurements
 
 <div class="post-meta">
-  <span>Posted: April 7, 2026 (Mon)</span>
+  <span>Posted: April 7, 2026 (Tue)</span>
   <span class="tag">Gemini</span>
   <span class="tag">Gemma</span>
   <span class="tag">Tokenizer</span>

@@ -28,7 +28,7 @@ title: ">_"
   <div class="card">
     <h3><a href="/poptones/posts/gemini-kyo-analysis/">Gemini「拠」バグをGemma 4で再現する——トークナイザ・embedding・attention sinkの実測</a></h3>
     <div class="card-meta">
-      <span class="date">投稿日：2026年04月07日(月)</span>
+      <span class="date">投稿日：2026年04月07日(火)</span>
       <span class="tag">Gemini</span>
       <span class="tag">Gemma</span>
       <span class="tag">Tokenizer</span>
