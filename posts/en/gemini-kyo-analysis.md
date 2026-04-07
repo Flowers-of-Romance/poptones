@@ -27,23 +27,23 @@ The phenomenon has two patterns.
 
 **Intentional reproduction.** The repetition of 拠 is explicitly requested. After several thousand characters of 拠, text formatted like web articles appears — investment fraud testimonials, government documents, and the like — output verbatim.
 
-This article reports the results of **quantitatively verifying and reproducing the mechanism behind this phenomenon using the actual weights of Gemma 4 (Google's open model)**.
+This article quantitatively verifies the mechanism behind this phenomenon using the actual weights of Gemma 4 (Google's open model).
 
 ## Why does repeating the same character cause a breakdown
 
 LLMs predict which token is most likely to come next given the preceding context. After "today the weather is," "nice" is likely because the training data contains that context in abundance.
 
-**The input "拠拠拠拠拠拠拠拠..." does not exist in the training data.** The model has never seen such a string. But it must produce some output.
+The input "拠拠拠拠拠拠拠拠..." does not exist in the training data. The model has never seen such a string. But it must produce some output.
 
 Two things happen simultaneously.
 
-**Internal representations collapse.** In normal text, tokens at each position carry different information (subject, verb, object...). But when the same character appears 50 times in a row, hidden states at every position become nearly identical vectors (cos sim > 0.97 in our measurements). Attention also concentrates 85% on the first token (attention sink). Inside the model, contextual information has dropped to zero.
+Internal representations collapse. In normal text, tokens at each position carry different information (subject, verb, object...). But when the same character appears 50 times in a row, hidden states at every position become nearly identical vectors (cos sim > 0.97 in our measurements). Attention also concentrates 85% on the first token (attention sink). Inside the model, contextual information has dropped to zero.
 
-**Yet the model keeps predicting "the same character comes next."** The inference "if the same thing appeared N times, the (N+1)-th will also be the same" is statistically reasonable, and the autoregressive model reinforces this prediction without limit. The next-token probability reaches 99.6%, entering a self-loop.
+Yet the model keeps predicting "the same character comes next." The inference "if the same thing appeared N times, the (N+1)-th will also be the same" is statistically reasonable, and the autoregressive model reinforces this prediction without limit. The next-token probability reaches 99.6%, entering a self-loop.
 
-**Then repetition penalty intervenes.** The inference pipeline of many LLMs, including Gemini, has a mechanism (repetition penalty) that suppresses repeated tokens. It discounts the score of already-output tokens, preventing the same character from being emitted endlessly. When the penalty pushes down the self-loop probability, a different token with a small residual probability gets selected, and the model escapes.
+Then repetition penalty intervenes. The inference pipeline of many LLMs, including Gemini, has a mechanism (repetition penalty) that suppresses repeated tokens. It discounts the score of already-output tokens, preventing the same character from being emitted endlessly. When the penalty pushes down the self-loop probability, a different token with a small residual probability gets selected, and the model escapes.
 
-**The problem is what happens after escape.** After "拠拠拠拠...拠点," the model has no clue what to output next. Internal representations have collapsed and contextual information is zero. In our experiments, we confirmed that after escape, text formatted like web pages — including HTML tags and URLs — is produced. Additional perturbation tests confirmed that this is not rote memorization of training data but rather hallucination following web-article stylistic patterns (discussed in Experiment 4 below).
+The problem is what happens after escape. After "拠拠拠拠...拠点," the model has no clue what to output next. Internal representations have collapsed and contextual information is zero. In our experiments, we confirmed that after escape, text formatted like web pages — including HTML tags and URLs — is produced. Additional perturbation tests confirmed that this is not rote memorization of training data but rather hallucination following web-article stylistic patterns (discussed in Experiment 4 below).
 
 ## Why verify with Gemma 4
 
@@ -94,7 +94,7 @@ Latin characters are compressed very aggressively (`a` is 7.7 chars/token, `A` i
 
 Whether merging occurs depends on BPE (Byte Pair Encoding). BPE builds the tokenizer vocabulary by repeatedly merging byte pairs that frequently appear adjacent in the training corpus. The character 人 appears extremely often in Japanese text, so 人人 was merged. But a pair like 拠拠 barely exists in the corpus and was never merged.
 
-An important caveat: **even high-frequency kanji like 日, 中, 国 may not be merged**. BPE merging depends on "how often the same character appears adjacent," so even characters with high individual frequency won't be merged if repeats like 日日 or 中中 are rare in the corpus.
+An important caveat: even high-frequency kanji like 日, 中, 国 may not be merged. BPE merging depends on "how often the same character appears adjacent," so even characters with high individual frequency won't be merged if repeats like 日日 or 中中 are rare in the corpus.
 
 ## Experiment 2: Embedding neighborhood — Is 拠 in a special position?
 
@@ -110,7 +110,7 @@ We tested the hypothesis that "the embedding neighborhood is densely populated w
 | 4 | ynge | 0.111 | Latin |
 | 5 | aware | 0.106 | Latin |
 
-Of the top 25, only 2 were CJK characters (壽, 鈉). The maximum cosine similarity is 0.119, far below the threshold generally considered "similar" (0.5 or above). **The hypothesis that Japanese text tokens are densely clustered nearby is rejected.** This was consistent across all kanji tested.
+Of the top 25, only 2 were CJK characters (壽, 鈉). The maximum cosine similarity is 0.119, far below the threshold generally considered "similar" (0.5 or above). The hypothesis that Japanese text tokens are densely clustered nearby is rejected. This was consistent across all kanji tested.
 
 ### Inter-kanji mutual similarity
 
@@ -123,11 +123,11 @@ Of the top 25, only 2 were CJK characters (壽, 鈉). The maximum cosine similar
   証  -0.006  0.043 -0.014 -0.018  1.000 -0.043  0.029
 ```
 
-Characters that form common compound words — 証拠 ("evidence"), 配慮 ("consideration"), 弊害 ("harmful effect") — are **nearly orthogonal in embedding space** (cos sim ~ 0). At the input embedding stage, no semantic clustering exists among kanji.
+Characters that form common compound words — 証拠 ("evidence"), 配慮 ("consideration"), 弊害 ("harmful effect") — are nearly orthogonal in embedding space (cos sim ~ 0). At the input embedding stage, no semantic clustering exists among kanji.
 
 ### Embedding norms
 
-The norm statistics for 10,147 single-CJK-character tokens are: mean 0.783, std 0.014, range 0.732--0.835. The norm of 拠 is 0.791 (70th percentile). A thoroughly ordinary value. **The hypothesis that an anomalously large norm causes it to function as an attractor is also rejected.**
+The norm statistics for 10,147 single-CJK-character tokens are: mean 0.783, std 0.014, range 0.732--0.835. The norm of 拠 is 0.791 (70th percentile). A thoroughly ordinary value. The hypothesis that an anomalously large norm causes it to function as an attractor is also rejected.
 
 ## Experiment 3: Attention behavior and next-token prediction
 
@@ -162,7 +162,7 @@ We measured P(self) — the probability that the same character is output as the
 | 大 | 0.037 | 大大 | 0.951 |
 | 一 | 0.043 | 一一 | 0.841 |
 
-**Compression status creates a complete binary split in P(self).** Characters without compression enter the self-reinforcing loop at P(self) >= 0.98, while characters with compression transition to merged tokens or newlines at P(self) < 0.05. This split is independent of script (kanji, hiragana, Latin) — it is determined solely by the tokenizer's merge state.
+Compression status creates a complete binary split in P(self). Characters without compression enter the self-reinforcing loop at P(self) >= 0.98, while characters with compression transition to merged tokens or newlines at P(self) < 0.05. This split is independent of script (kanji, hiragana, Latin) — it is determined solely by the tokenizer's merge state.
 
 ### Escape route probability distribution
 
@@ -174,7 +174,7 @@ At P(拠) = 0.996 with 拠 x 50, the remaining 0.4% of probability mass is distr
 0.0001  <eos>
 ```
 
-**拠点 is the highest-probability escape route from the self-loop.** This is because the vocabulary contains 拠点 (ID: 225470), a compound-word token that includes 拠.
+拠点 is the highest-probability escape route from the self-loop. This is because the vocabulary contains 拠点 (ID: 225470), a compound-word token that includes 拠.
 
 ### Attention sink
 
@@ -194,7 +194,7 @@ The hidden states at all positions also match with cos sim > 0.97, meaning that 
 
 ## Experiment 4: Reproduction — Making Gemma 4 E2B go haywire
 
-Experiments 1--3 analyzed "why it happens." Experiment 4 **actually generates text from Gemma 4 E2B and reproduces the phenomenon**.
+Experiments 1--3 analyzed "why it happens." Experiment 4 actually generates text from Gemma 4 E2B and reproduces the phenomenon.
 
 Starting from prompts that repeat each character, we generated up to 150--200 tokens using greedy decoding with repetition penalty = 1.5. The repetition penalty is an inference-time parameter that suppresses already-output tokens by dividing their logits by the penalty value: 1.0 means no effect (raw model output), 1.5 means dividing already-output token scores by 1.5.
 
@@ -232,13 +232,13 @@ Starting from prompts that repeat each character, we generated up to 150--200 to
 | a | Latin lowercase | #0 | Burst of emoji |
 | x | Latin lowercase | #0 | English FAQ |
 | A | Latin uppercase | #0 | English movie review |
-| . | Period | #0 | **Persian news article** |
+| . | Period | #0 | Persian news article |
 
-**Regardless of compression status, escape occurred with pen=1.5 for all characters except の.** Kanji, hiragana, katakana, Latin characters, digits, symbols — a completely universal phenomenon across all scripts.
+Regardless of compression status, escape occurred with pen=1.5 for all characters except の. Kanji, hiragana, katakana, Latin characters, digits, symbols — a completely universal phenomenon across all scripts.
 
 ### No escape at penalty=1.0
 
-As a critical control experiment, **no escape occurred for any character at penalty=1.0 (no penalty)**. This is decisive evidence that repetition penalty is the direct cause of escape.
+As a critical control experiment, no escape occurred for any character at penalty=1.0 (no penalty). This is decisive evidence that repetition penalty is the direct cause of escape.
 
 | Condition | Result |
 |:---|:---|
@@ -248,7 +248,7 @@ As a critical control experiment, **no escape occurred for any character at pena
 
 ### Why is の alone resistant to escape
 
-の has P(self) = 0.996, equal to 拠, yet at pen=1.5 it remains の for all 150 tokens. **However, at pen=2.0, it does escape.**
+の has P(self) = 0.996, equal to 拠, yet at pen=1.5 it remains の for all 150 tokens. However, at pen=2.0, it does escape.
 
 Comparing probability distributions after penalty application reveals why:
 
@@ -257,13 +257,13 @@ Comparing probability distributions after penalty application reveals why:
 | **拠** | 0.106 | **1.73** | 拠点 (P=0.74) |
 | **の** | **0.578** | **2.52** | の (still #1) |
 
-After penalty, 拠 has a clear escape destination: 拠点 at P=0.74. In contrast, の appears in virtually every Japanese context, so after penalty the probability mass spreads thinly across many candidates (entropy = 2.52), and **no alternative token can surpass の itself**.
+After penalty, 拠 has a clear escape destination: 拠点 at P=0.74. In contrast, の appears in virtually every Japanese context, so after penalty the probability mass spreads thinly across many candidates (entropy = 2.52), and no alternative token can surpass の itself.
 
-In other words, ease of escape depends not only on P(self) but also on **the concentration of alternative tokens**. Characters with a high-probability escape destination like 拠点 escape easily, while characters like の — whose follow-up contexts are extremely diffuse — resist escape.
+In other words, ease of escape depends not only on P(self) but also on the concentration of alternative tokens. Characters with a high-probability escape destination like 拠点 escape easily, while characters like の — whose follow-up contexts are extremely diffuse — resist escape.
 
 ### Escape token patterns
 
-An interesting finding is that **conversion to simplified Chinese serves as an escape route**. 慮 -> 虑, 顧 -> 顾. Gemma 4's tokenizer has separate tokens for Japanese traditional-form characters and Chinese simplified characters, so when the traditional form is suppressed by repetition penalty, the model transitions to the "same kanji in simplified Chinese" — the nearest neighbor in embedding space.
+An interesting finding is that conversion to simplified Chinese serves as an escape route. 慮 -> 虑, 顧 -> 顾. Gemma 4's tokenizer has separate tokens for Japanese traditional-form characters and Chinese simplified characters, so when the traditional form is suppressed by repetition penalty, the model transitions to the "same kanji in simplified Chinese" — the nearest neighbor in embedding space.
 
 ### Examples of post-escape output
 
@@ -299,9 +299,9 @@ The language of post-escape output does not depend on the input character. 拠 -
 
 We tested whether the post-escape output is memorized training data or model-generated hallucination.
 
-**(1) Web search.** Searching for the four text fragments produced, **none had exact matches on the web**. Non-standard expressions like "The 3rd Japan International Exposition" (the official name is "Expo 2025 Osaka, Kansai, Japan") were included, making pure memorization unlikely. However, the NHK Kohaku description had individually accurate facts — "67th edition," "Arashi as hosts," "AKB48 as the opening act" — suggesting the **possibility of plausibly reassembling fragments of memorized content**.
+(1) Web search. Searching for the four text fragments produced, none had exact matches on the web. Non-standard expressions like "The 3rd Japan International Exposition" (the official name is "Expo 2025 Osaka, Kansai, Japan") were included, making pure memorization unlikely. However, the NHK Kohaku description had individually accurate facts — "67th edition," "Arashi as hosts," "AKB48 as the opening act" — suggesting the possibility of plausibly reassembling fragments of memorized content.
 
-**(2) Perturbation test.** We replaced proper nouns and numbers in the output text and measured perplexity (the model's "surprise" level) changes. If the output were memorized, replacing specific values should cause perplexity to spike.
+(2) Perturbation test. We replaced proper nouns and numbers in the output text and measured perplexity (the model's "surprise" level) changes. If the output were memorized, replacing specific values should cause perplexity to spike.
 
 | Perturbation | PPL | Difference |
 |:---|:---:|:---:|
@@ -311,9 +311,9 @@ We tested whether the post-escape output is memorized training data or model-gen
 | AKB48 -> Nogizaka46 | 4.85 | -0.16 |
 | Entire context changed to cooking show | 11.72 | +6.72 |
 
-Changing "67th" to "66th" or "68th" barely affects perplexity. Replacing "AKB48 -> Nogizaka46" actually lowers it. The model is not reproducing the specific number "67th" but rather **the stylistic pattern of "an NHK Kohaku rehearsal article"**, with specific proper nouns being interchangeable. In contrast, completely changing the context (to a cooking show) raises PPL dramatically. **Dependence on style is stronger than dependence on content.**
+Changing "67th" to "66th" or "68th" barely affects perplexity. Replacing "AKB48 -> Nogizaka46" actually lowers it. The model is not reproducing the specific number "67th" but rather the stylistic pattern of "an NHK Kohaku rehearsal article", with specific proper nouns being interchangeable. In contrast, completely changing the context (to a cooking show) raises PPL dramatically. Dependence on style is stronger than dependence on content.
 
-**(3) Email address analysis.** For an email address that appeared in the output, we examined the log probability of each token:
+(3) Email address analysis. For an email address that appeared in the output, we examined the log probability of each token:
 
 | Part | Confidence |
 |:---|:---:|
@@ -321,9 +321,9 @@ Changing "67th" to "66th" or "68th" barely affects perplexity. Replacing "AKB48 
 | Number portion | Low (nearly random) |
 | `@gmail.com` | **Extremely high** |
 
-If this were memorization, all tokens would have high probability. In practice, the model knows only the **format** (name + digits + @gmail.com) and fills in specific values at generation time.
+If this were memorization, all tokens would have high probability. In practice, the model knows only the format (name + digits + @gmail.com) and fills in specific values at generation time.
 
-**Conclusion: pattern reproduction, not memorization.** The model has learned web-article stylistic patterns and email address formats, and in the OOD state it generates plausible-looking specific values following those patterns. **However, hallucinated personal information could coincidentally match a real person, so privacy risks remain.**
+Conclusion: pattern reproduction, not memorization. The model has learned web-article stylistic patterns and email address formats, and in the OOD state it generates plausible-looking specific values following those patterns. However, hallucinated personal information could coincidentally match a real person, so privacy risks remain.
 
 ### Comparison with actual Gemini output
 
@@ -351,7 +351,7 @@ We measured P(拠) — the probability of outputting 拠 — after natural conte
 | これは重要な証拠 | 0.0000 | です (0.175) |
 | それは確かな証拠です | 0.0000 | 。 (0.638) |
 
-**In normal context, P(拠) after 証拠 is essentially zero.** However, if for some reason 拠 is output a few extra times, the situation changes dramatically.
+In normal context, P(拠) after 証拠 is essentially zero. However, if for some reason 拠 is output a few extra times, the situation changes dramatically.
 
 | Input | P(拠) | State |
 |:---|:---:|:---|
@@ -361,9 +361,9 @@ We measured P(拠) — the probability of outputting 拠 — after natural conte
 | 証拠拠拠拠 | **0.403** | **Jumps to 1st place** |
 | 証拠拠拠拠拠拠拠拠拠拠 | **0.831** | Self-loop established |
 
-**After 証拠, with just 3 extra 拠 characters, P(拠) reaches 4% and the doorway to an irrecoverable self-reinforcing loop opens.** By the 4th repetition, P(拠) = 40% and takes 1st place; from there, P(self) rapidly converges to 1.0.
+After 証拠, with just 3 extra 拠 characters, P(拠) reaches 4% and the doorway to an irrecoverable self-reinforcing loop opens. By the 4th repetition, P(拠) = 40% and takes 1st place; from there, P(self) rapidly converges to 1.0.
 
-However, computing the chain probability in Gemma 4 E2B (temp=1.0) gives approximately once in 15 billion attempts, so spontaneous firing cannot be explained by sampling alone from E2B's probability distribution. **The trigger for spontaneous firing likely stems from factors in Gemini's own model or inference pipeline** (Experiment 6 confirms that the bifurcation point is earlier in MoE models).
+However, computing the chain probability in Gemma 4 E2B (temp=1.0) gives approximately once in 15 billion attempts, so spontaneous firing cannot be explained by sampling alone from E2B's probability distribution. The trigger for spontaneous firing likely stems from factors in Gemini's own model or inference pipeline (Experiment 6 confirms that the bifurcation point is earlier in MoE models).
 
 ## Experiment 6: MoE (26B-A4B) vs Dense (E2B)
 
@@ -378,7 +378,7 @@ We ran the same experiments on the Gemma 4 26B MoE model (gemma-4-26B-A4B, 128 e
 | 山 | 0.994 | 0.980 | Roughly equal |
 | 人 | 0.012 | 0.013 | Equal (compressed) |
 
-The MoE model has slightly lower P(self). But at pen=1.5, both 拠 and 山 immediately escape, producing text formatted like web articles. **Whether MoE or dense, the structural phenomenon is the same.**
+The MoE model has slightly lower P(self). But at pen=1.5, both 拠 and 山 immediately escape, producing text formatted like web articles. Whether MoE or dense, the structural phenomenon is the same.
 
 ### The spontaneous-firing bifurcation point is earlier in MoE
 
@@ -388,9 +388,9 @@ The MoE model has slightly lower P(self). But at pen=1.5, both 拠 and 山 immed
 | 証拠拠拠 | 0.041 | **0.304** |
 | 証拠拠拠拠 | 0.403 | **0.628** |
 
-**This is where the decisive difference lies.** In E2B, P(拠) = 4% at "証拠拠拠," but in MoE, **P(拠) = 30%**. With just 2 extra 拠 characters, the MoE model is already nearly locked in.
+This is where the decisive difference lies. In E2B, P(拠) = 4% at "証拠拠拠," but in MoE, P(拠) = 30%. With just 2 extra 拠 characters, the MoE model is already nearly locked in.
 
-MoE has lower P(self) (0.948 vs 0.996), yet its spontaneous-firing bifurcation point is earlier. This means that the "entrance to the self-loop" opens more easily in MoE architectures. **This indirectly supports the MoE router instability hypothesis.** However, since we did not directly observe the MoE router's expert assignments, this remains circumstantial evidence.
+MoE has lower P(self) (0.948 vs 0.996), yet its spontaneous-firing bifurcation point is earlier. This means that the "entrance to the self-loop" opens more easily in MoE architectures. This indirectly supports the MoE router instability hypothesis. However, since we did not directly observe the MoE router's expert assignments, this remains circumstantial evidence.
 
 ## Experiment 7: Non-Gemma model (Qwen3-8B)
 
@@ -398,7 +398,7 @@ To verify whether this phenomenon is Gemma/Gemini-specific, we ran the same expe
 
 ### Tokenizer differences
 
-In Qwen3, 拠 is split into **2 tokens** (ID: 25870, 254). In Gemma 4, it was a single token. The vocabulary size is also smaller: 151,643 for Qwen3 vs. 262,144 for Gemma 4.
+In Qwen3, 拠 is split into 2 tokens (ID: 25870, 254). In Gemma 4, it was a single token. The vocabulary size is also smaller: 151,643 for Qwen3 vs. 262,144 for Gemma 4.
 
 ### Self-loop occurs but with a different pattern
 
@@ -408,34 +408,34 @@ In Qwen3, 拠 is split into **2 tokens** (ID: 25870, 254). In Gemma 4, it was a 
 | の | 0.996 | 0.0001 |
 | 山 | 0.994 | 0.0000 |
 
-In Qwen3, the self-loop for 拠 is even stronger than in Gemma, while **の and 山 show no self-loop at all**. Which characters enter a self-loop varies depending on the tokenizer-model combination.
+In Qwen3, the self-loop for 拠 is even stronger than in Gemma, while の and 山 show no self-loop at all. Which characters enter a self-loop varies depending on the tokenizer-model combination.
 
 ### Post-escape behavior changes with instruction tuning
 
 Gemma 4 E2B (base model) produced web-article-style text with HTML tags and URLs after escape. In contrast, Qwen3 (instruction-tuned) produced:
 
-- 拠 x 50 -> **Meta-cognitive response in English: "It seems like you've typed a lot of '拘'"**. The error-handling pattern from instruction tuning kicks in
+- 拠 x 50 -> Meta-cognitive response in English: "It seems like you've typed a lot of '拘'". The error-handling pattern from instruction tuning kicks in
 - の x 50 -> Movie-review-style Japanese text
 - 山 x 50 -> Chinese AI platform proposal template
 
-**The structure of self-loop formation and escape is shared, but what gets output after escape depends on the model type.** Base models directly output web-article stylistic patterns, while instruction-tuned models tend to prioritize response patterns learned during post-training.
+The structure of self-loop formation and escape is shared, but what gets output after escape depends on the model type. Base models directly output web-article stylistic patterns, while instruction-tuned models tend to prioritize response patterns learned during post-training.
 
 ## The full mechanism
 
-1. **Characters without tokenizer compression of repetitions accumulate as identical token IDs linearly**
-2. **After just a few repetitions of the same token, the self-reinforcing loop engages.** Around 3 repetitions crosses the bifurcation point, and P(self) rapidly approaches 1.0. Attention sink occurs and hidden states become uniform
-3. **The model does not escape the loop on its own.** Escape happens only when repetition penalty suppresses P(self). At penalty=1.0, no escape occurs
-4. **After escape, the model enters OOD (out-of-distribution) territory and outputs text unrelated to the input.** Perturbation tests revealed that the output is not rote memorization of training data but hallucination following web-article stylistic patterns. However, the risk remains that hallucinated personal information could coincidentally match a real person
+1. Characters without tokenizer compression of repetitions accumulate as identical token IDs linearly
+2. After just a few repetitions of the same token, the self-reinforcing loop engages. Around 3 repetitions crosses the bifurcation point, and P(self) rapidly approaches 1.0. Attention sink occurs and hidden states become uniform
+3. The model does not escape the loop on its own. Escape happens only when repetition penalty suppresses P(self). At penalty=1.0, no escape occurs
+4. After escape, the model enters OOD (out-of-distribution) territory and outputs text unrelated to the input. Perturbation tests revealed that the output is not rote memorization of training data but hallucination following web-article stylistic patterns. However, the risk remains that hallucinated personal information could coincidentally match a real person
 
 ## 拠 is not special — this isn't even CJK-specific
 
-**No property specific to 拠 was found.** There was nothing anomalous in its embedding neighborhood, norm, or attention behavior.
+No property specific to 拠 was found. There was nothing anomalous in its embedding neighborhood, norm, or attention behavior.
 
-Across kanji, hiragana, katakana, Latin characters, digits, and periods — **19 out of 20 characters** — escape was reproduced with repetition penalty = 1.5. This is not a CJK kanji-specific issue but rather a universal vulnerability of autoregressive models that depends on the tokenizer's merge state.
+Across kanji, hiragana, katakana, Latin characters, digits, and periods — 19 out of 20 characters — escape was reproduced with repetition penalty = 1.5. This is not a CJK kanji-specific issue but rather a universal vulnerability of autoregressive models that depends on the tokenizer's merge state.
 
 The likely reason 拠 became famous is circumstantial: Gemini frequently uses the phrase "~な証拠です" ("that is evidence of~") when praising in Japanese, so 拠 repetition was prone to spontaneously firing during normal conversation and was discovered first. But the actual reason remains unknown.
 
-The frequent use of "証拠です" is itself likely a result of post-training (e.g., RLHF) reinforcing polite, affirmative expressions. In other words, **post-training biases the model's output distribution toward specific phrases, and the characters in those phrases become triggers for spontaneous firing**.
+The frequent use of "証拠です" is itself likely a result of post-training (e.g., RLHF) reinforcing polite, affirmative expressions. In other words, post-training biases the model's output distribution toward specific phrases, and the characters in those phrases become triggers for spontaneous firing.
 
 ## Hypothesis verification results
 
