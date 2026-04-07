@@ -26,6 +26,18 @@ title: ">_"
 <section>
   <h2>Posts</h2>
   <div class="card">
+    <h3><a href="/poptones/posts/en/gemini-kyo-analysis/">Reproducing the Gemini "Kyo" Bug with Gemma 4 — Tokenizer, Embedding, and Attention Sink Measurements</a></h3>
+    <div class="card-meta">
+      <span class="date">April 7, 2026</span>
+      <span class="tag">Gemini</span>
+      <span class="tag">Gemma</span>
+      <span class="tag">Tokenizer</span>
+      <span class="tag">Attention</span>
+      <span class="tag">LLM</span>
+    </div>
+    <p class="description">Quantitative reproduction and analysis of the Gemini "kyo" repetition bug using Gemma 4 open weights. Measuring tokenizer compression, embedding neighborhoods, attention sinks, and repetition penalty interactions.</p>
+  </div>
+  <div class="card">
     <h3><a href="/poptones/posts/en/llm-emdash-injection/">On LLM Writing Style: Em Dash Injection Experiment</a></h3>
     <div class="card-meta">
       <span class="date">April 1, 2026</span>
