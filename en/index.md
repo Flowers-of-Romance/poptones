@@ -28,7 +28,7 @@ title: ">_"
   <div class="card">
     <h3><a href="/poptones/posts/en/gemini-kyo-analysis/">Reproducing the Gemini "Kyo" Bug with Gemma 4 — Tokenizer, Embedding, and Attention Sink Measurements</a></h3>
     <div class="card-meta">
-      <span class="date">April 7, 2026 (Tue)</span>
+      <span class="date">April 7, 2026 (Tue) 19:49:12</span>
       <span class="tag">Gemini</span>
       <span class="tag">Gemma</span>
       <span class="tag">Tokenizer</span>

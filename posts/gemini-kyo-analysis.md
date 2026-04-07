@@ -12,7 +12,7 @@ published: true
 # Gemini「拠」バグをGemma 4で再現する——トークナイザ・embedding・attention sinkの実測
 
 <div class="post-meta">
-  <span>投稿日：2026年04月07日(火)</span>
+  <span>投稿日：2026年04月07日(火)19時49分12秒</span>
   <span class="tag">Gemini</span>
   <span class="tag">Gemma</span>
   <span class="tag">Tokenizer</span>
