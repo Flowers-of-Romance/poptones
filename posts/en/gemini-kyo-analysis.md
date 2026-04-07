@@ -185,11 +185,9 @@ At P(拠) = 0.996 with 拠 x 50, the remaining 0.4% of probability mass is distr
   Layer 34: sink=0.321  (redistributed at output layer)
 ```
 
-In the middle layers (Layer 17--26), 85% of attention weight concentrates on position 0 (the first token). This is the phenomenon known as attention sink[^1]. With repeated identical tokens, "every position carries the same information," so attention cannot make meaningful distinctions, and the first position serves as the default sink.
+In the middle layers (Layer 17--26), 85% of attention weight concentrates on position 0 (the first token). This is the phenomenon known as attention sink (Xiao et al. 2024 "Efficient Streaming Language Models with Attention Sinks"). With repeated identical tokens, "every position carries the same information," so attention cannot make meaningful distinctions, and the first position serves as the default sink.
 
 The hidden states at all positions also match with cos sim > 0.97, meaning that 50 copies of 拠 internally carry only as much information as a single one.
-
-[^1]: Xiao et al. 2024 "Efficient Streaming Language Models with Attention Sinks"
 
 ## Experiment 4: Reproduction — Making Gemma 4 E2B go haywire
 

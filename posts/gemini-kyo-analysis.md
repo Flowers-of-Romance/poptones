@@ -189,11 +189,9 @@ CJK単漢字10,147トークンのノルム統計は平均0.783、標準偏差0.0
   Layer 34: sink=0.321  （出力層で再分散）
 ```
 
-中間層（Layer 17〜26）でattention weightの85%が位置0（先頭トークン）に集中する。これはattention sinkと呼ばれる現象[^1]で、同一トークンの繰り返しでは「どの位置も同じ情報を持つ」ためにattentionが意味のある区別をできず、先頭位置がデフォルトの吸い込み先として機能する。
+中間層（Layer 17〜26）でattention weightの85%が位置0（先頭トークン）に集中する。これはattention sinkと呼ばれる現象（Xiao et al. 2024 "Efficient Streaming Language Models with Attention Sinks"）で、同一トークンの繰り返しでは「どの位置も同じ情報を持つ」ためにattentionが意味のある区別をできず、先頭位置がデフォルトの吸い込み先として機能する。
 
 全位置のhidden stateもcos sim 0.97以上で一致しており、50個の「拠」が内部的には1個と同じ情報しか持っていない。
-
-[^1]: Xiao et al. 2024 "Efficient Streaming Language Models with Attention Sinks"
 
 ## 検証4: 再現実験——Gemma 4 E2Bで暴走させる
 
