@@ -26,18 +26,6 @@ title: ">_"
 <section>
   <h2>Posts</h2>
   <div class="card">
-    <h3><a href="/poptones/posts/gemini-kyo-analysis/">Gemini「拠」バグをGemma 4で再現する——トークナイザ・embedding・attention sinkの実測</a></h3>
-    <div class="card-meta">
-      <span class="date">投稿日：2026年04月07日(火)19時49分12秒</span>
-      <span class="tag">Gemini</span>
-      <span class="tag">Gemma</span>
-      <span class="tag">Tokenizer</span>
-      <span class="tag">Attention</span>
-      <span class="tag">LLM</span>
-    </div>
-    <p class="description">「拠」の繰り返しでGeminiが暴走する現象を、Gemma 4の実際の重みで定量的に検証・再現した。トークナイザの圧縮、embedding近傍、attention sink、repetition penaltyの相互作用を実測。</p>
-  </div>
-  <div class="card">
     <h3><a href="/poptones/posts/llm-emdash-injection/">LLMの文体について　em dash注入実験</a></h3>
     <div class="card-meta">
       <span class="date">投稿日：2026年04月01日(火)23時19分24秒</span>
