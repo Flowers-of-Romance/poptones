@@ -14,6 +14,7 @@ title: インターネットと「からっぽの洞窟」
   <span class="tag">AI</span>
 </div>
 <p class="post-note">この記事は人工無能を使って執筆されています。<span class="lang-switch"><a href="/poptones/posts/en/internet/">English</a></span></p>
+
 ## AIがネットをつまらなくしたという物語
 
 最近、「AIのせいでインターネットがつまらなくなった」という話をよく聞く。
@@ -94,17 +95,17 @@ title: インターネットと「からっぽの洞窟」
 
 **脚注**
 
-<p id="fn1"><a href="#ref1">[1]</a> モーリー・ロバートソン「AIの"侵略"でネットは『文脈』を失い、つまらなくなった」『週刊プレイボーイ』2026年1月26日発売号（連載『挑発的ニッポン革命計画』第490回）。モーリー・ロバートソンは2026年1月29日に食道がんのため63歳で死去。本コラムが事実上の遺稿となった。<span class="lang-switch"><a href="/poptones/posts/en/internet/">English</a></span></p>
+<p id="fn1"><a href="#ref1">[1]</a> モーリー・ロバートソン「AIの"侵略"でネットは『文脈』を失い、つまらなくなった」『週刊プレイボーイ』2026年1月26日発売号（連載『挑発的ニッポン革命計画』第490回）。モーリー・ロバートソンは2026年1月29日に食道がんのため63歳で死去。本コラムが事実上の遺稿となった。</p>
 
-<p id="fn2"><a href="#ref2">[2]</a> Clifford Stoll, <em>Silicon Snake Oil: Second Thoughts on the Information Highway</em>, Doubleday, 1995. 邦訳：クリフォード・ストール著、倉骨彰訳『インターネットはからっぽの洞窟』草思社、1997年。<span class="lang-switch"><a href="/poptones/posts/en/internet/">English</a></span></p>
+<p id="fn2"><a href="#ref2">[2]</a> Clifford Stoll, <em>Silicon Snake Oil: Second Thoughts on the Information Highway</em>, Doubleday, 1995. 邦訳：クリフォード・ストール著、倉骨彰訳『インターネットはからっぽの洞窟』草思社、1997年。</p>
 
-<p id="fn3"><a href="#ref3">[3]</a> Clifford Stoll, <em>The Cuckoo's Egg: Tracking a Spy Through the Maze of Computer Espionage</em>, Doubleday, 1989. 邦訳：クリフォード・ストール著、池央耿訳『カッコウはコンピュータに卵を産む』草思社、1991年。<span class="lang-switch"><a href="/poptones/posts/en/internet/">English</a></span></p>
+<p id="fn3"><a href="#ref3">[3]</a> Clifford Stoll, <em>The Cuckoo's Egg: Tracking a Spy Through the Maze of Computer Espionage</em>, Doubleday, 1989. 邦訳：クリフォード・ストール著、池央耿訳『カッコウはコンピュータに卵を産む』草思社、1991年。</p>
 
-<p id="fn4"><a href="#ref4">[4]</a> 同書 p.135。筆者は未読のため、書評からの孫引きである。「笑ってしまう」もこの脚注もClaudeが書いた。未読の本について書くなら読めという意見はもっともだが、ドゥルーズ＝ガタリの愛蔵版が出たばかりなので…。<span class="lang-switch"><a href="/poptones/posts/en/internet/">English</a></span></p>
+<p id="fn4"><a href="#ref4">[4]</a> 同書 p.135。筆者は未読のため、書評からの孫引きである。「笑ってしまう」もこの脚注もClaudeが書いた。未読の本について書くなら読めという意見はもっともだが、ドゥルーズ＝ガタリの愛蔵版が出たばかりなので…。</p>
 
-<p id="fn5"><a href="#ref5">[5]</a> 同書 p.52。リー・ファン博士との逸話。同じく p.244 では「コンピュータ自体に洞察力はない。この種の頭脳の働きを高めてくれるのは、読書であり、作文であり、解析であり、教師なのだ」と述べている。<span class="lang-switch"><a href="/poptones/posts/en/internet/">English</a></span></p>
+<p id="fn5"><a href="#ref5">[5]</a> 同書 p.52。リー・ファン博士との逸話。同じく p.244 では「コンピュータ自体に洞察力はない。この種の頭脳の働きを高めてくれるのは、読書であり、作文であり、解析であり、教師なのだ」と述べている。</p>
 
-<p id="fn6"><a href="#ref6">[6]</a> 小林秀雄「様々なる意匠」『改造』1929年9月号。小林のランボー体験については「Xへの手紙」（1932年）等でも繰り返し語られている。<span class="lang-switch"><a href="/poptones/posts/en/internet/">English</a></span></p>
+<p id="fn6"><a href="#ref6">[6]</a> 小林秀雄「様々なる意匠」『改造』1929年9月号。小林のランボー体験については「Xへの手紙」（1932年）等でも繰り返し語られている。</p>
 
 </section>
 
