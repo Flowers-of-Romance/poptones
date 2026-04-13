@@ -147,6 +147,30 @@ The 25 emotions are distributed along the same two-axis structure as the psychol
 
 I visualized emotion activations at each token position in texts not used for vector extraction. For each token, I subtracted the neutral baseline mean from the hidden state and took the dot product with each emotion vector (unit-normalized). The relative differences across 8 emotions are shown per token as color intensity using z-scores.
 
+<style>
+.ha-block {
+    font-family: 'Menlo', 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    text-wrap: wrap;
+    margin-bottom: 8px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 10px 12px;
+    border-radius: 3px;
+}
+.ha-block .token { padding: 1px 0; border-radius: 2px; cursor: default; }
+.emotion-label {
+    font-family: 'Menlo', 'Consolas', monospace;
+    font-size: 11px;
+    font-weight: bold;
+    color: #555;
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+    margin-right: 8px;
+}
+</style>
 <div id="heatmap-container"></div>
 <script>
 fetch('/poptones/posts/emotion-geometry-gemma3/emotion-geometry-data.json')

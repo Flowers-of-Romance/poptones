@@ -147,6 +147,30 @@ Layer 42での各感情のPC1-PC2座標を見ると
 
 ベクトル抽出に使っていないテキストで、各トークン位置での感情活性化を可視化した。hidden stateからneutralベースラインの平均を引き、感情ベクトル（単位正規化済み）との内積を計算した。各トークンで8感情のz-score（感情間の相対差）を色の濃さで表示する。
 
+<style>
+.ha-block {
+    font-family: 'Menlo', 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    text-wrap: wrap;
+    margin-bottom: 8px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 10px 12px;
+    border-radius: 3px;
+}
+.ha-block .token { padding: 1px 0; border-radius: 2px; cursor: default; }
+.emotion-label {
+    font-family: 'Menlo', 'Consolas', monospace;
+    font-size: 11px;
+    font-weight: bold;
+    color: #555;
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+    margin-right: 8px;
+}
+</style>
 <div id="heatmap-container"></div>
 <script>
 fetch('/poptones/posts/emotion-geometry-gemma3/emotion-geometry-data.json')
