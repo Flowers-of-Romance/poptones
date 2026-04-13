@@ -149,7 +149,7 @@ Layer 42での各感情のPC1-PC2座標を見ると
 
 <div id="heatmap-container"></div>
 <script>
-fetch('/poptones/posts/emotion-geometry-data.json')
+fetch('/poptones/posts/emotion-geometry-gemma3/emotion-geometry-data.json')
   .then(r => r.json())
   .then(data => {
     const emotions = ['happy','sad','angry','afraid','calm','desperate','nostalgic','excited'];
