@@ -13,4 +13,7 @@ site.add("css");
 site.add("js");
 site.add("img");
 
+// Static data files
+site.copy([".json"]);
+
 export default site;
