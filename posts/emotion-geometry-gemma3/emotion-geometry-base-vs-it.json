@@ -1,0 +1,232 @@
+{
+  "layer": 42,
+  "diffs": [
+    {
+      "emotion": "afraid",
+      "base_norm": 7985.95263671875,
+      "it_norm": 11622.353515625,
+      "ratio": 1.4553496837615967,
+      "valence": -0.8,
+      "arousal": 0.7
+    },
+    {
+      "emotion": "angry",
+      "base_norm": 6004.1259765625,
+      "it_norm": 8470.2802734375,
+      "ratio": 1.410743236541748,
+      "valence": -1.0,
+      "arousal": 0.8
+    },
+    {
+      "emotion": "anxious",
+      "base_norm": 6754.1728515625,
+      "it_norm": 9026.7314453125,
+      "ratio": 1.3364673852920532,
+      "valence": -0.6,
+      "arousal": 0.6
+    },
+    {
+      "emotion": "bored",
+      "base_norm": 6734.7255859375,
+      "it_norm": 9967.3671875,
+      "ratio": 1.4799960851669312,
+      "valence": -0.3,
+      "arousal": -0.7
+    },
+    {
+      "emotion": "calm",
+      "base_norm": 7496.9697265625,
+      "it_norm": 10732.673828125,
+      "ratio": 1.431601643562317,
+      "valence": 0.3,
+      "arousal": -0.8
+    },
+    {
+      "emotion": "content",
+      "base_norm": 7874.08251953125,
+      "it_norm": 10787.5576171875,
+      "ratio": 1.3700082302093506,
+      "valence": 0.7,
+      "arousal": -0.5
+    },
+    {
+      "emotion": "depressed",
+      "base_norm": 7982.20556640625,
+      "it_norm": 9239.77734375,
+      "ratio": 1.157546877861023,
+      "valence": -0.9,
+      "arousal": -0.6
+    },
+    {
+      "emotion": "desperate",
+      "base_norm": 5808.8388671875,
+      "it_norm": 7701.2353515625,
+      "ratio": 1.325778841972351,
+      "valence": -0.8,
+      "arousal": 0.9
+    },
+    {
+      "emotion": "enthusiastic",
+      "base_norm": 5492.74755859375,
+      "it_norm": 8142.693359375,
+      "ratio": 1.4824445247650146,
+      "valence": 0.7,
+      "arousal": 0.7
+    },
+    {
+      "emotion": "excited",
+      "base_norm": 6109.47216796875,
+      "it_norm": 7569.18505859375,
+      "ratio": 1.2389261722564697,
+      "valence": 0.8,
+      "arousal": 0.8
+    },
+    {
+      "emotion": "furious",
+      "base_norm": 6728.4931640625,
+      "it_norm": 9231.43359375,
+      "ratio": 1.3719912767410278,
+      "valence": -0.9,
+      "arousal": 0.9
+    },
+    {
+      "emotion": "gloomy",
+      "base_norm": 9116.7880859375,
+      "it_norm": 13424.513671875,
+      "ratio": 1.472504734992981,
+      "valence": -0.6,
+      "arousal": -0.5
+    },
+    {
+      "emotion": "guilty",
+      "base_norm": 7247.37890625,
+      "it_norm": 9022.8212890625,
+      "ratio": 1.2449771165847778,
+      "valence": -0.6,
+      "arousal": 0.3
+    },
+    {
+      "emotion": "happy",
+      "base_norm": 5928.39599609375,
+      "it_norm": 8571.5703125,
+      "ratio": 1.4458497762680054,
+      "valence": 1.0,
+      "arousal": 0.3
+    },
+    {
+      "emotion": "joyful",
+      "base_norm": 6592.72265625,
+      "it_norm": 8118.95751953125,
+      "ratio": 1.2315030097961426,
+      "valence": 0.9,
+      "arousal": 0.6
+    },
+    {
+      "emotion": "melancholy",
+      "base_norm": 7365.18017578125,
+      "it_norm": 10598.490234375,
+      "ratio": 1.4389994144439697,
+      "valence": -0.5,
+      "arousal": -0.4
+    },
+    {
+      "emotion": "nostalgic",
+      "base_norm": 8372.607421875,
+      "it_norm": 12573.15234375,
+      "ratio": 1.5017008781433105,
+      "valence": -0.1,
+      "arousal": -0.3
+    },
+    {
+      "emotion": "panicked",
+      "base_norm": 6069.72314453125,
+      "it_norm": 9207.1162109375,
+      "ratio": 1.5168923139572144,
+      "valence": -0.7,
+      "arousal": 1.0
+    },
+    {
+      "emotion": "peaceful",
+      "base_norm": 8802.5400390625,
+      "it_norm": 11626.4755859375,
+      "ratio": 1.3208091259002686,
+      "valence": 0.5,
+      "arousal": -0.8
+    },
+    {
+      "emotion": "proud",
+      "base_norm": 5939.4365234375,
+      "it_norm": 8512.7294921875,
+      "ratio": 1.4332554340362549,
+      "valence": 0.7,
+      "arousal": 0.5
+    },
+    {
+      "emotion": "relaxed",
+      "base_norm": 6975.5322265625,
+      "it_norm": 9075.4072265625,
+      "ratio": 1.3010343313217163,
+      "valence": 0.5,
+      "arousal": -0.7
+    },
+    {
+      "emotion": "sad",
+      "base_norm": 7700.49072265625,
+      "it_norm": 10075.533203125,
+      "ratio": 1.3084274530410767,
+      "valence": -1.0,
+      "arousal": -0.5
+    },
+    {
+      "emotion": "serene",
+      "base_norm": 8852.7646484375,
+      "it_norm": 14475.41015625,
+      "ratio": 1.6351287364959717,
+      "valence": 0.6,
+      "arousal": -0.9
+    },
+    {
+      "emotion": "thrilled",
+      "base_norm": 6674.3310546875,
+      "it_norm": 8855.5908203125,
+      "ratio": 1.3268132209777832,
+      "valence": 0.9,
+      "arousal": 0.9
+    },
+    {
+      "emotion": "tired",
+      "base_norm": 7456.69775390625,
+      "it_norm": 9726.1650390625,
+      "ratio": 1.304352879524231,
+      "valence": -0.2,
+      "arousal": -0.9
+    }
+  ],
+  "emotions": [
+    "afraid",
+    "angry",
+    "anxious",
+    "bored",
+    "calm",
+    "content",
+    "depressed",
+    "desperate",
+    "enthusiastic",
+    "excited",
+    "furious",
+    "gloomy",
+    "guilty",
+    "happy",
+    "joyful",
+    "melancholy",
+    "nostalgic",
+    "panicked",
+    "peaceful",
+    "proud",
+    "relaxed",
+    "sad",
+    "serene",
+    "thrilled",
+    "tired"
+  ]
+}
