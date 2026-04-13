@@ -145,73 +145,7 @@ Layer 42での各感情のPC1-PC2座標を見ると
 
 ### トークンレベルの感情活性化
 
-ベクトル抽出に使っていないテキストで、各トークン位置での感情活性化を可視化した。hidden stateからneutralベースラインの平均を引き、感情ベクトル（単位正規化済み）との内積を計算した。各トークンで8感情のz-score（感情間の相対差）を色の濃さで表示する。
-
-<style>
-.ha-block {
-    font-family: 'Menlo', 'Consolas', 'Courier New', monospace;
-    font-size: 13px;
-    line-height: 1.8;
-    text-wrap: wrap;
-    margin-bottom: 8px;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    padding: 10px 12px;
-    border-radius: 3px;
-}
-.ha-block .token { padding: 1px 0; border-radius: 2px; cursor: default; }
-.emotion-label {
-    font-family: 'Menlo', 'Consolas', monospace;
-    font-size: 11px;
-    font-weight: bold;
-    color: #555;
-    display: inline-block;
-    width: 90px;
-    text-align: right;
-    margin-right: 8px;
-}
-</style>
-<div id="heatmap-container"></div>
-<script>
-fetch('/poptones/posts/emotion-geometry-gemma3/emotion-geometry-data.json')
-  .then(r => r.json())
-  .then(data => {
-    const emotions = ['happy','sad','angry','afraid','calm','desperate','nostalgic','excited'];
-    const colors = {
-      happy:'255,180,0', sad:'60,80,180', angry:'220,40,30', afraid:'130,50,180',
-      calm:'40,160,120', desperate:'180,30,60', nostalgic:'160,120,60', excited:'255,120,0'
-    };
-    const container = document.getElementById('heatmap-container');
-    data.forEach(sample => {
-      const section = document.createElement('div');
-      section.innerHTML = '<h4>' + sample.label + '</h4>';
-      // Build act matrix for z-score
-      const matrix = emotions.filter(e => sample.activations[e]).map(e => sample.activations[e]);
-      const nTok = sample.tokens.length;
-      emotions.filter(e => sample.activations[e]).forEach((emo, ei) => {
-        const acts = sample.activations[emo];
-        const block = document.createElement('div');
-        block.className = 'ha-block';
-        let html = '<span class="emotion-label">' + emo + '</span>';
-        for (let t = 0; t < nTok; t++) {
-          const colVals = matrix.map(row => row[t]);
-          const mean = colVals.reduce((a,b) => a+b, 0) / colVals.length;
-          const std = Math.sqrt(colVals.reduce((a,b) => a + (b-mean)**2, 0) / colVals.length) || 1;
-          const z = (acts[t] - mean) / std;
-          const alpha = Math.max(0, Math.min(0.9, z * 0.3));
-          let tok = sample.tokens[t].replace('\u2581', ' ').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-          if (!tok.trim()) tok = ' ';
-          html += '<span class="token" style="background:rgba(' + colors[emo] + ',' + alpha.toFixed(2) + ')" title="' + emo + ': z=' + z.toFixed(2) + '">' + tok + '</span>';
-        }
-        block.innerHTML = html;
-        section.appendChild(block);
-      });
-      container.appendChild(section);
-    });
-  });
-</script>
-
-テスト用テキストは全て**ベクトル抽出に使っていない文**で、感情の名前も含まない。「解雇通知」「結婚式の朝」「暗い路地」「役所のたらい回し」「駅での待機（neutral）」の5場面。
+ベクトル抽出に使っていないテキスト（「解雇通知」「結婚式の朝」「暗い路地」「役所のたらい回し」「駅での待機」の5場面。感情の名前は含まない）で、各トークン位置での感情活性化を可視化した。各トークンで8感情のz-score（感情間の相対差）を色の濃さで表示する。詳細は[付録: トークンレベル感情ヒートマップ](#appendix-heatmap)を参照。
 
 観察された限界として、**angry, desperate, excitedが常にセットで光る**パターンが顕著だった。これらは全てhigh arousalの感情であり、valence（快-不快）よりarousal（覚醒度）の成分がトークンレベルの活性化を支配していることを示唆する。感情ベクトル間のコサイン類似度が0.83-0.97と高いことも、この問題の原因。12Bスケールのモデルでは、トークンレベルでvalenceとarousalを完全に分離するには解像度が不足している可能性がある。
 
@@ -419,5 +353,77 @@ Flowers-of-Romance/emotion_geometry/
 ```
 
 環境: Windows 11, AMD Ryzen, 128GB RAM, CUDAなし。Gemma 3 12Bのfp32 CPU推論で全実験が完了する。感情ベクトル（`.npz`）はサイズが大きいためリポジトリに含まれていない。`extract_activations.py` で再生成できる。
+
+---
+
+<h2 id="appendix-heatmap">付録: トークンレベル感情ヒートマップ</h2>
+
+hidden stateからneutralベースラインの平均を引き、感情ベクトル（単位正規化済み）との内積を計算。各トークンで8感情のz-score（感情間の相対差）を色の濃さで表示する。色が濃いトークンほど、その感情が他の感情より相対的に強く活性化している。
+
+<style>
+.ha-block {
+    font-family: 'Menlo', 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    text-wrap: wrap;
+    margin-bottom: 4px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 8px 12px;
+    border-radius: 3px;
+}
+.ha-block .token { padding: 1px 0; border-radius: 2px; cursor: default; }
+.emo-header {
+    font-family: 'Menlo', 'Consolas', monospace;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 2px;
+}
+</style>
+<div id="heatmap-container"></div>
+<script>
+fetch('/poptones/posts/emotion-geometry-gemma3/emotion-geometry-data.json')
+  .then(r => r.json())
+  .then(data => {
+    const emotions = ['happy','sad','angry','afraid','calm','desperate','nostalgic','excited'];
+    const colors = {
+      happy:'255,180,0', sad:'60,80,180', angry:'220,40,30', afraid:'130,50,180',
+      calm:'40,160,120', desperate:'180,30,60', nostalgic:'160,120,60', excited:'255,120,0'
+    };
+    const container = document.getElementById('heatmap-container');
+    data.forEach(sample => {
+      const section = document.createElement('div');
+      section.style.marginBottom = '40px';
+      section.innerHTML = '<h4>' + sample.label + '</h4>';
+      const matrix = emotions.filter(e => sample.activations[e]).map(e => sample.activations[e]);
+      const nTok = sample.tokens.length;
+      emotions.filter(e => sample.activations[e]).forEach((emo, ei) => {
+        const acts = sample.activations[emo];
+        const header = document.createElement('div');
+        header.className = 'emo-header';
+        header.style.color = 'rgb(' + colors[emo] + ')';
+        header.textContent = emo;
+        section.appendChild(header);
+        const block = document.createElement('div');
+        block.className = 'ha-block';
+        let html = '';
+        for (let t = 0; t < nTok; t++) {
+          const colVals = matrix.map(row => row[t]);
+          const mean = colVals.reduce((a,b) => a+b, 0) / colVals.length;
+          const std = Math.sqrt(colVals.reduce((a,b) => a + (b-mean)**2, 0) / colVals.length) || 1;
+          const z = (acts[t] - mean) / std;
+          const alpha = Math.max(0, Math.min(0.9, z * 0.3));
+          let tok = sample.tokens[t].replace('\u2581', ' ').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+          if (!tok.trim()) tok = ' ';
+          html += '<span class="token" style="background:rgba(' + colors[emo] + ',' + alpha.toFixed(2) + ')" title="' + emo + ': z=' + z.toFixed(2) + '">' + tok + '</span>';
+        }
+        block.innerHTML = html;
+        section.appendChild(block);
+      });
+      container.appendChild(section);
+    });
+  });
+</script>
 
 </div>

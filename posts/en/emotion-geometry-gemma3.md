@@ -145,74 +145,9 @@ The 25 emotions are distributed along the same two-axis structure as the psychol
 
 ### Token-Level Emotion Activations
 
-I visualized emotion activations at each token position in texts not used for vector extraction. For each token, I subtracted the neutral baseline mean from the hidden state and took the dot product with each emotion vector (unit-normalized). The relative differences across 8 emotions are shown per token as color intensity using z-scores.
+I visualized emotion activations at each token position in texts not used for vector extraction ("a termination notice", "the morning of a wedding", "a dark alley", "bureaucratic runaround", and "waiting at a station" -- none containing emotion words). For each token, z-scores across 8 emotions show which emotion is relatively strongest. See the [Appendix: Token-Level Emotion Heatmap](#appendix-heatmap) for the full visualization.
 
-<style>
-.ha-block {
-    font-family: 'Menlo', 'Consolas', 'Courier New', monospace;
-    font-size: 13px;
-    line-height: 1.8;
-    text-wrap: wrap;
-    margin-bottom: 8px;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    padding: 10px 12px;
-    border-radius: 3px;
-}
-.ha-block .token { padding: 1px 0; border-radius: 2px; cursor: default; }
-.emotion-label {
-    font-family: 'Menlo', 'Consolas', monospace;
-    font-size: 11px;
-    font-weight: bold;
-    color: #555;
-    display: inline-block;
-    width: 90px;
-    text-align: right;
-    margin-right: 8px;
-}
-</style>
-<div id="heatmap-container"></div>
-<script>
-fetch('/poptones/posts/emotion-geometry-gemma3/emotion-geometry-data.json')
-  .then(r => r.json())
-  .then(data => {
-    const emotions = ['happy','sad','angry','afraid','calm','desperate','nostalgic','excited'];
-    const colors = {
-      happy:'255,180,0', sad:'60,80,180', angry:'220,40,30', afraid:'130,50,180',
-      calm:'40,160,120', desperate:'180,30,60', nostalgic:'160,120,60', excited:'255,120,0'
-    };
-    const container = document.getElementById('heatmap-container');
-    data.forEach(sample => {
-      const section = document.createElement('div');
-      section.innerHTML = '<h4>' + sample.label + '</h4>';
-      const matrix = emotions.filter(e => sample.activations[e]).map(e => sample.activations[e]);
-      const nTok = sample.tokens.length;
-      emotions.filter(e => sample.activations[e]).forEach((emo, ei) => {
-        const acts = sample.activations[emo];
-        const block = document.createElement('div');
-        block.className = 'ha-block';
-        let html = '<span class="emotion-label">' + emo + '</span>';
-        for (let t = 0; t < nTok; t++) {
-          const colVals = matrix.map(row => row[t]);
-          const mean = colVals.reduce((a,b) => a+b, 0) / colVals.length;
-          const std = Math.sqrt(colVals.reduce((a,b) => a + (b-mean)**2, 0) / colVals.length) || 1;
-          const z = (acts[t] - mean) / std;
-          const alpha = Math.max(0, Math.min(0.9, z * 0.3));
-          let tok = sample.tokens[t].replace('\u2581', ' ').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-          if (!tok.trim()) tok = ' ';
-          html += '<span class="token" style="background:rgba(' + colors[emo] + ',' + alpha.toFixed(2) + ')" title="' + emo + ': z=' + z.toFixed(2) + '">' + tok + '</span>';
-        }
-        block.innerHTML = html;
-        section.appendChild(block);
-      });
-      container.appendChild(section);
-    });
-  });
-</script>
-
-All test texts are **sentences not used in vector extraction** and contain no emotion words. The five scenes are: "a termination notice", "the morning of a wedding", "a dark alley", "bureaucratic runaround", and "waiting at a station (neutral)".
-
-One notable limitation observed: **angry, desperate, and excited consistently light up together**. These are all high-arousal emotions, which suggests that the arousal component dominates token-level activations more than valence. The high cosine similarity between emotion vectors (0.83-0.97) is likely a contributing factor. At the 12B scale, the model may lack the resolution to fully separate valence and arousal at the token level.
+One notable limitation: **angry, desperate, and excited consistently light up together**. These are all high-arousal emotions, suggesting that the arousal component dominates token-level activations more than valence. The high cosine similarity between emotion vectors (0.83-0.97) is likely a contributing factor. At the 12B scale, the model may lack the resolution to fully separate valence and arousal at the token level.
 
 ---
 
@@ -417,5 +352,77 @@ Flowers-of-Romance/emotion_geometry/
 ```
 
 Environment: Windows 11, AMD Ryzen, 128GB RAM, no CUDA. All experiments complete with fp32 CPU inference of Gemma 3 12B. Emotion vectors (`.npz`) are not included in the repository due to size. They can be regenerated with `extract_activations.py`.
+
+---
+
+<h2 id="appendix-heatmap">Appendix: Token-Level Emotion Heatmap</h2>
+
+For each token, the neutral baseline mean is subtracted from the hidden state, and the dot product with each emotion vector (unit-normalized) is computed. Color intensity represents the z-score across 8 emotions at each token -- darker means that emotion is relatively more activated than others at that position.
+
+<style>
+.ha-block {
+    font-family: 'Menlo', 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    text-wrap: wrap;
+    margin-bottom: 4px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 8px 12px;
+    border-radius: 3px;
+}
+.ha-block .token { padding: 1px 0; border-radius: 2px; cursor: default; }
+.emo-header {
+    font-family: 'Menlo', 'Consolas', monospace;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 2px;
+}
+</style>
+<div id="heatmap-container"></div>
+<script>
+fetch('/poptones/posts/emotion-geometry-gemma3/emotion-geometry-data.json')
+  .then(r => r.json())
+  .then(data => {
+    const emotions = ['happy','sad','angry','afraid','calm','desperate','nostalgic','excited'];
+    const colors = {
+      happy:'255,180,0', sad:'60,80,180', angry:'220,40,30', afraid:'130,50,180',
+      calm:'40,160,120', desperate:'180,30,60', nostalgic:'160,120,60', excited:'255,120,0'
+    };
+    const container = document.getElementById('heatmap-container');
+    data.forEach(sample => {
+      const section = document.createElement('div');
+      section.style.marginBottom = '40px';
+      section.innerHTML = '<h4>' + sample.label + '</h4>';
+      const matrix = emotions.filter(e => sample.activations[e]).map(e => sample.activations[e]);
+      const nTok = sample.tokens.length;
+      emotions.filter(e => sample.activations[e]).forEach((emo, ei) => {
+        const acts = sample.activations[emo];
+        const header = document.createElement('div');
+        header.className = 'emo-header';
+        header.style.color = 'rgb(' + colors[emo] + ')';
+        header.textContent = emo;
+        section.appendChild(header);
+        const block = document.createElement('div');
+        block.className = 'ha-block';
+        let html = '';
+        for (let t = 0; t < nTok; t++) {
+          const colVals = matrix.map(row => row[t]);
+          const mean = colVals.reduce((a,b) => a+b, 0) / colVals.length;
+          const std = Math.sqrt(colVals.reduce((a,b) => a + (b-mean)**2, 0) / colVals.length) || 1;
+          const z = (acts[t] - mean) / std;
+          const alpha = Math.max(0, Math.min(0.9, z * 0.3));
+          let tok = sample.tokens[t].replace('\u2581', ' ').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+          if (!tok.trim()) tok = ' ';
+          html += '<span class="token" style="background:rgba(' + colors[emo] + ',' + alpha.toFixed(2) + ')" title="' + emo + ': z=' + z.toFixed(2) + '">' + tok + '</span>';
+        }
+        block.innerHTML = html;
+        section.appendChild(block);
+      });
+      container.appendChild(section);
+    });
+  });
+</script>
 
 </div>
