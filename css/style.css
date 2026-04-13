@@ -122,8 +122,8 @@ a:active {
   transition: background 0.3s;
 }
 
-/* Diary link */
-.diary-link {
+/* Back to top link */
+.back-link {
   position: fixed;
   top: 1rem;
   left: 1rem;
@@ -141,18 +141,14 @@ a:active {
   color: var(--text-muted);
   text-decoration: none;
   font-family: 'Fira Code', monospace;
+  z-index: 100;
 }
-.diary-link:hover {
+.back-link:hover {
   color: var(--accent);
   background: var(--code-bg);
 }
-.diary-link:visited {
+.back-link:visited {
   color: var(--text-muted);
-}
-
-/* Hide diary-link on diary page (replaced by back button) */
-body:has(.diary-back) .diary-link {
-  display: none;
 }
 
 /* Section */
