@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/poptones/css/style.css">
 </head>
 <body>
-  <a class="back-link" href="/poptones/" aria-label="Top">&lt;</a>
+  {{ if (it.url !== "/") }}<a class="back-link" href="/poptones/" aria-label="Top">&lt;</a>{{ /if }}
   <button class="theme-toggle" aria-label="Toggle theme"></button>
 
   {{ content }}
