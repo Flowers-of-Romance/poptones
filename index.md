@@ -26,18 +26,6 @@ title: ">_"
 <section>
   <h2>Posts</h2>
   <div class="card">
-    <h3><a href="/poptones/posts/emotion-geometry-gemma3/">感情の幾何学はモデルを超えるか——Gemma 3 12Bでの追試</a></h3>
-    <div class="card-meta">
-      <span class="date">投稿日：2026年04月13日(日)03時42分19秒</span>
-      <span class="tag">LLM</span>
-      <span class="tag">Mechanistic Interpretability</span>
-      <span class="tag">Emotion</span>
-      <span class="tag">Gemma</span>
-      <span class="tag">Activation Steering</span>
-    </div>
-    <p class="description">Anthropic感情ベクトル論文の追試。Gemma 3 12Bでaffective circumplexを再現、activation steeringで因果確認、base vs instruct比較。</p>
-  </div>
-  <div class="card">
     <h3><a href="/poptones/posts/gemini-analysis/">Gemini「拠」現象の解剖——Gemma 4によるdivergenceメカニズムの実測</a></h3>
     <div class="card-meta">
       <span class="date">投稿日：2026年04月14日(月)00時15分33秒</span>
@@ -48,6 +36,18 @@ title: ">_"
       <span class="tag">LLM</span>
     </div>
     <p class="description">Geminiの「拠」暴走現象をGemma 4の実際の重みで解剖。P(self)収束、hidden state崩壊、attention sinkの3つのメカニズムを実測。</p>
+  </div>
+  <div class="card">
+    <h3><a href="/poptones/posts/emotion-geometry-gemma3/">感情の幾何学はモデルを超えるか——Gemma 3 12Bでの追試</a></h3>
+    <div class="card-meta">
+      <span class="date">投稿日：2026年04月13日(日)03時42分19秒</span>
+      <span class="tag">LLM</span>
+      <span class="tag">Mechanistic Interpretability</span>
+      <span class="tag">Emotion</span>
+      <span class="tag">Gemma</span>
+      <span class="tag">Activation Steering</span>
+    </div>
+    <p class="description">Anthropic感情ベクトル論文の追試。Gemma 3 12Bでaffective circumplexを再現、activation steeringで因果確認、base vs instruct比較。</p>
   </div>
   <div class="card">
     <h3><a href="/poptones/posts/llm-emdash-injection/">LLMの文体について　em dash注入実験</a></h3>
