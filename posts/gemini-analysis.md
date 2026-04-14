@@ -12,7 +12,7 @@ published: true
 # Gemini「拠」現象の解剖——Gemma 4によるdivergenceメカニズムの実測
 
 <div class="post-meta">
-  <span>投稿日：2026年04月14日(月)00時15分33秒</span>
+  <span>投稿日：2026年04月15日(火)00時03分00秒</span>
   <span class="tag">Gemini</span>
   <span class="tag">Gemma</span>
   <span class="tag">Tokenizer</span>

@@ -28,7 +28,7 @@ title: ">_"
   <div class="card">
     <h3><a href="/poptones/posts/gemini-analysis/">Gemini「拠」現象の解剖——Gemma 4によるdivergenceメカニズムの実測</a></h3>
     <div class="card-meta">
-      <span class="date">投稿日：2026年04月14日(月)00時15分33秒</span>
+      <span class="date">投稿日：2026年04月15日(火)00時03分00秒</span>
       <span class="tag">Gemini</span>
       <span class="tag">Gemma</span>
       <span class="tag">Tokenizer</span>
