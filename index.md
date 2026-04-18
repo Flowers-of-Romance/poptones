@@ -26,6 +26,17 @@ title: ">_"
 <section>
   <h2>Posts</h2>
   <div class="card">
+    <h3><a href="/poptones/posts/chile-1970-1973/">チリ、1970-1973</a></h3>
+    <div class="card-meta">
+      <span class="date">投稿日：2026年04月19日(日)01時34分00秒</span>
+      <span class="tag">ポエム</span>
+      <span class="tag">チリ</span>
+      <span class="tag">サイバネティクス</span>
+      <span class="tag">Allende</span>
+    </div>
+    <p class="description">Allendeの千日。Cybersyn、Nueva Canción、Quimantú。1973年9月11日、大いなる並木道は閉ざされた。</p>
+  </div>
+  <div class="card">
     <h3><a href="/poptones/posts/gemini-analysis/">Gemini「拠」現象の解剖——Gemma 4によるdivergenceメカニズムの実測</a></h3>
     <div class="card-meta">
       <span class="date">投稿日：2026年04月15日(火)00時03分00秒</span>
