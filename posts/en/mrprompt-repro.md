@@ -139,7 +139,7 @@ To test claim ② directly, we compare conditions with parts deleted or altered 
 | `card_think` | card + thinking ON (control for Question B) | ON |
 | `mrprompt_think` | MRPrompt + thinking ON (control for Question B) | ON |
 
-The "thinking" column refers to a feature of the model, Qwen3. Qwen3 has a native thinking mode: when ON, it writes a reasoning block (`<think>…</think>` — this is chain-of-thought, CoT) before its answer; when OFF, it answers directly. The earlier reproduction confounded this thinking on/off and the token budget across conditions, so the structure's effect was entangled with CoT and budget. Here every condition uses the same token budget (1024); thinking mode is the only manipulated variable. The seven main conditions are thinking-OFF, with `card_think`/`mrprompt_think` as the thinking-ON control arm that measures Question B directly. Note that the CoT is generated text and need not faithfully reflect the model's actual internal computation.
+The "thinking" column refers to a feature of the model, Qwen3. Qwen3 has a native thinking mode: when ON, it writes a reasoning block (`<think>…</think>` — this is chain-of-thought, CoT) before its answer; when OFF, it answers directly. If thinking on/off and the token budget vary across conditions, the structure's effect gets entangled with CoT and budget. So here every condition uses the same token budget (1024); thinking mode is the only manipulated variable. The seven main conditions are thinking-OFF, with `card_think`/`mrprompt_think` as the thinking-ON control arm that measures Question B directly. Note that the CoT is generated text and need not faithfully reflect the model's actual internal computation.
 
 ### 3.3 Generation, judging, statistics
 
@@ -195,7 +195,7 @@ Decomposing the headline into structure and CoT (paired contrasts, Δ ± SEM):
 | mrprompt_think − mrprompt | +0.65 ±0.16 | giving MRPrompt thinking ON (large, significant) |
 | MS-FA(ON) − MS-FA(OFF) | +1.01 ±0.38 | the contrastive metric also rises with thinking ON |
 
-The structured-memory contribution is small. It beats the card (+0.46), but over a plain prose description it is +0.20, indistinguishable from zero — and the card is itself worse than prose. By contrast, holding the prompt fixed and toggling only thinking ON adds +0.65–0.78 for both the card and MRPrompt, and +1.01 on the contrastive MS-FA. The headline gain is driven mainly by CoT generation (extra inference-time reasoning tokens), with no significant evidence that the structured-memory mechanism adds beyond it. The tendency seen in the earlier reconstruction (CoT as the driver) becomes clearer, not weaker, once the confound is removed and the paper's verbatim prompts are used.
+The structured-memory contribution is small. It beats the card (+0.46), but over a plain prose description it is +0.20, indistinguishable from zero — and the card is itself worse than prose. By contrast, holding the prompt fixed and toggling only thinking ON adds +0.65–0.78 for both the card and MRPrompt, and +1.01 on the contrastive MS-FA. The headline gain is driven mainly by CoT generation (extra inference-time reasoning tokens), with no significant evidence that the structured-memory mechanism adds beyond it.
 
 <div style="margin:20px 0"><canvas id="chart-c1" width="720" height="270"></canvas></div>
 
