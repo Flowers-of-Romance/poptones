@@ -20,7 +20,7 @@ lang: en
 
 ## Starting point
 
-The earlier study (<a href="https://github.com/Flowers-of-Romance/mrprompt-repro">mrprompt-repro</a>) showed that MRPrompt's "cue-addressable facet recall" is unsupported in-context. Deleting or scrambling the cue keys (cue_phrases) did not move the output, and attention landed on the facet body, not the keys. The reason is simple: because every facet body is in the prompt, the model can pick the needed facet from the body content, and the short key is bypassed. An address only means something when its target is otherwise unreachable.
+The earlier study (<a href="https://flowers-of-romance.github.io/poptones/posts/en/mrprompt-repro/">mrprompt-repro</a>) showed that MRPrompt's "cue-addressable facet recall" is unsupported in-context. Deleting or scrambling the cue keys (cue_phrases) did not move the output, and attention landed on the facet body, not the keys. The reason is simple: because every facet body is in the prompt, the model can pick the needed facet from the body content, and the short key is bypassed. An address only means something when its target is otherwise unreachable.
 
 If that is right, then taking the facet bodies out of the prompt and making the cue the only retrieval path should let the cue-matched facet be recalled. Store facets in an external memory keyed by the cue, and inject only the body whose key matches the dialogue — a retrieval (RAG) setup. We implement this on the same 100 instances, the same Qwen3-8B, and the same scoring as mrprompt-repro, and measure two things.
 

@@ -19,7 +19,7 @@ title: MRPrompt の cue を外付けにする
 
 ## 要旨
 
-MRPrompt は、キャラの性格を「場面ごとの切れ端（facet）」に分け、会話中の手がかり語（cue）で必要な facet を呼び出す、という手法である。前回（<a href="https://github.com/Flowers-of-Romance/mrprompt-repro">mrprompt-repro</a>）で分かったのは、facet を全部プロンプトに入れている限り cue は効かない、ということだった。モデルは facet の中身を直接読むので、短い手がかり語を見ないからである。
+MRPrompt は、キャラの性格を「場面ごとの切れ端（facet）」に分け、会話中の手がかり語（cue）で必要な facet を呼び出す、という手法である。前回（<a href="https://flowers-of-romance.github.io/poptones/posts/mrprompt-repro/">mrprompt-repro</a>）で分かったのは、facet を全部プロンプトに入れている限り cue は効かない、ということだった。モデルは facet の中身を直接読むので、短い手がかり語を見ないからである。
 
 そこで本稿では、facet をプロンプトの外に置き、cue で1個だけ検索して渡す方式（retrieval）を試した。同じ100インスタンス・同じモデルで測った結果はこうである。
 
