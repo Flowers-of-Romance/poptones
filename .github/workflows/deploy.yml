@@ -15,7 +15,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: denoland/setup-deno@v2
-      - run: deno task build
+      - name: Cache Deno modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/deno
+          key: deno-${{ runner.os }}-${{ hashFiles('deno.json', 'deno.lock') }}
+          restore-keys: deno-${{ runner.os }}-
+      - name: Build (retry transient CDN/network failures)
+        run: |
+          n=0
+          until deno task build; do
+            n=$((n+1))
+            if [ "$n" -ge 5 ]; then echo "build failed after $n attempts"; exit 1; fi
+            echo "build attempt $n failed; retrying in 15s"; sleep 15
+          done
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
